@@ -114,14 +114,14 @@
 -define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Photon/BotSDK/VisualEditor/Editor/Assemblies/protobuf-net.dll"
--r:"Assets/Photon/BotSDK/VisualEditor/Editor/Assemblies/quantum.ai.editor.dll"
--r:"Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
--r:"Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
--r:"Assets/Photon/Quantum/Assemblies/PhotonDeterministic.dll"
--r:"Assets/Photon/Quantum/Assemblies/quantum.code.dll"
--r:"Assets/Photon/Quantum/Assemblies/quantum.core.dll"
 -r:"Assets/Plugins/LiteNetLib/Editor/LiteNetLib.dll"
+-r:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/protobuf-net.dll"
+-r:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/quantum.ai.editor.dll"
+-r:"Assets/Plugins/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
+-r:"Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
+-r:"Assets/Plugins/Photon/Quantum/Assemblies/PhotonDeterministic.dll"
+-r:"Assets/Plugins/Photon/Quantum/Assemblies/quantum.code.dll"
+-r:"Assets/Plugins/Photon/Quantum/Assemblies/quantum.core.dll"
 -r:"C:/Users/Filipe Durães/Documents/GitHub/Test_Zombies/test_zombies/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"D:/Unity/Versions/2021.3.28f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"D:/Unity/Versions/2021.3.28f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -345,6 +345,10 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/protobuf-net.dll"
+-analyzer:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/quantum.ai.editor.dll"
+-analyzer:"Assets/Plugins/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
+-analyzer:"Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/TrackedPoseDriver/TPDConfigurationProvider.cs"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/TrackedPoseDriver/TrackedPoseDriverEditor.cs"
 -langversion:9.0
