@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638336137521501322
-    m_Hash: 2022738125
+      ticks: 638336690862665688
+    m_Hash: 3401593864
   m_LockFileStatus:
     m_FilePath: "C:/Users/Filipe Dur\xE3es/Documents/GitHub/Test_Zombies/test_zombies/Packages/packages-lock.json"
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638336137655252428
-    m_Hash: 924370993
+      ticks: 638336690862675694
+    m_Hash: 2799508937
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

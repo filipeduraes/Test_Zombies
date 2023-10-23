@@ -628,7 +628,6 @@
 "Assets/Plugins/Photon/Quantum/Scripts/Utils/UtilsAttributes.cs"
 "Assets/Scripts/Sample/ClipData/ClipAnimationEvents.cs"
 "Assets/Scripts/Sample/ClipData/ClipDataAsset.User.cs"
-"Assets/Scripts/Sample/ClipData/Editor/AnimationsBakerEditor.cs"
 -langversion:9.0
 /unsafe+
 /deterministic
