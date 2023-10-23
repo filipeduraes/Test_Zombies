@@ -345,10 +345,6 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
--analyzer:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/protobuf-net.dll"
--analyzer:"Assets/Plugins/Photon/BotSDK/VisualEditor/Editor/Assemblies/quantum.ai.editor.dll"
--analyzer:"Assets/Plugins/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
--analyzer:"Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/TrackedPoseDriver/TPDConfigurationProvider.cs"
 "Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Editor/TrackedPoseDriver/TrackedPoseDriverEditor.cs"
 -langversion:9.0
