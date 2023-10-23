@@ -345,6 +345,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PhotonQuantumEditor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PhotonRealtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PhotonWebSocket.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Sample.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.2D.Tilemap.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Postprocessing.Editor.ref.dll"
