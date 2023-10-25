@@ -131,6 +131,11 @@ MonoBehaviour:
         Id:
           Value: 1324923448660611412
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Scenes/Gameplay_mesh
+      AssetRef:
+        Id:
+          Value: 1459794417083453152
+      ResourcePath: DB/Scenes/Gameplay_mesh
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_8
       AssetRef:
         Id:
@@ -151,6 +156,11 @@ MonoBehaviour:
         Id:
           Value: 1775941955512227993
       ResourcePath: DB/EntityPrototypes/Lion QPrefab
+    - Path: Resources/DB/Scenes/Gameplay
+      AssetRef:
+        Id:
+          Value: 1805011857375156809
+      ResourcePath: DB/Scenes/Gameplay
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
       AssetRef:
         Id:

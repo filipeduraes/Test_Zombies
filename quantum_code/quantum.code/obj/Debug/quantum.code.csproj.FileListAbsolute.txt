@@ -1,0 +1,7 @@
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.dll
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum-api-sample\Assets\Photon\Quantum\Assemblies\quantum.code.pdb
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.AssemblyReference.cache
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CoreCompileInputs.cache
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.code\obj\Debug\quantum.code.csproj.CopyComplete
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.code\obj\Debug\quantum.code.dll
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.code\obj\Debug\quantum.code.pdb
