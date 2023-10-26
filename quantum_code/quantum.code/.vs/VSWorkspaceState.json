@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Core",
+    "\\CustomState",
+    "\\CustomSystems"
+  ],
+  "SelectedNode": "\\CustomSystems\\MovementSystem.cs",
+  "PreviewInSolutionExplorer": false
+}

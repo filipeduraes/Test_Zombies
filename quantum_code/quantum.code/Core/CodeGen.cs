@@ -45,6 +45,7 @@ namespace Quantum {
     Attack = 1 << 2,
     Defend = 1 << 3,
     Jump = 1 << 4,
+    JumpButton = 1 << 5,
   }
   public static unsafe partial class InputButtons_ext {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -1801,19 +1802,21 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 96;
+    public const Int32 SIZE = 120;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(92)]
-    private fixed Byte _alignment_padding_[4];
     [FieldOffset(32)]
     public Button Action;
     [FieldOffset(44)]
     public Button Attack;
     [FieldOffset(56)]
     public Button Defend;
+    [FieldOffset(104)]
+    public FPVector2 Direction;
     [FieldOffset(68)]
     public Button Jump;
     [FieldOffset(80)]
+    public Button JumpButton;
+    [FieldOffset(92)]
     public Button MoveBack;
     [FieldOffset(0)]
     public FP MovementHorizontal;
@@ -1830,7 +1833,9 @@ namespace Quantum {
         hash = hash * 31 + Action.GetHashCode();
         hash = hash * 31 + Attack.GetHashCode();
         hash = hash * 31 + Defend.GetHashCode();
+        hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
+        hash = hash * 31 + JumpButton.GetHashCode();
         hash = hash * 31 + MoveBack.GetHashCode();
         hash = hash * 31 + MovementHorizontal.GetHashCode();
         hash = hash * 31 + MovementVertical.GetHashCode();
@@ -1854,6 +1859,7 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.IsDown;
         case InputButtons.Defend: return Defend.IsDown;
         case InputButtons.Jump: return Jump.IsDown;
+        case InputButtons.JumpButton: return JumpButton.IsDown;
       }
       return false;
     }
@@ -1864,6 +1870,7 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.WasPressed;
         case InputButtons.Defend: return Defend.WasPressed;
         case InputButtons.Jump: return Jump.WasPressed;
+        case InputButtons.JumpButton: return JumpButton.WasPressed;
       }
       return false;
     }
@@ -1877,7 +1884,9 @@ namespace Quantum {
         Button.Serialize(&p->Attack, serializer);
         Button.Serialize(&p->Defend, serializer);
         Button.Serialize(&p->Jump, serializer);
+        Button.Serialize(&p->JumpButton, serializer);
         Button.Serialize(&p->MoveBack, serializer);
+        FPVector2.Serialize(&p->Direction, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1926,7 +1935,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1112;
+    public const Int32 SIZE = 1256;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(48)]
     public BotSDKData BotSDKData;
@@ -1938,20 +1947,20 @@ namespace Quantum {
     public AssetRefMap Map;
     [FieldOffset(24)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(816)]
+    [FieldOffset(960)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet6 PlayerLastConnectionState;
     [FieldOffset(32)]
     public RNGSession RngSession;
-    [FieldOffset(688)]
+    [FieldOffset(832)]
     public BitSet1024 Systems;
     [FieldOffset(112)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[576];
+    private fixed Byte _input_[720];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 96, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 120, 6); }
       }
     }
     public override Int32 GetHashCode() {
@@ -2972,6 +2981,8 @@ namespace Quantum {
       i->Attack = i->Attack.Update(this.Number, input.Attack);
       i->Defend = i->Defend.Update(this.Number, input.Defend);
       i->Jump = i->Jump.Update(this.Number, input.Jump);
+      i->JumpButton = i->JumpButton.Update(this.Number, input.JumpButton);
+      i->Direction = input.Direction;
     }
     public Input* GetPlayerInput(Int32 player) {
       if ((uint)player >= (uint)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
@@ -4355,12 +4366,16 @@ namespace Quantum.Prototypes {
     public Button Attack;
     public Button Defend;
     public Button Jump;
+    public Button JumpButton;
+    public FPVector2 Direction;
     partial void MaterializeUser(Frame frame, ref Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Input result, in PrototypeMaterializationContext context) {
       result.Action = this.Action;
       result.Attack = this.Attack;
       result.Defend = this.Defend;
+      result.Direction = this.Direction;
       result.Jump = this.Jump;
+      result.JumpButton = this.JumpButton;
       result.MoveBack = this.MoveBack;
       result.MovementHorizontal = this.MovementHorizontal;
       result.MovementVertical = this.MovementVertical;

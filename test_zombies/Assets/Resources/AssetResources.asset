@@ -61,6 +61,11 @@ MonoBehaviour:
         Id:
           Value: 343462908344631734
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/Player|EntityView
+      AssetRef:
+        Id:
+          Value: 353696852809583513
+      ResourcePath: DB/Prototypes/Player
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetPositionRandom_5
       AssetRef:
         Id:
@@ -111,6 +116,11 @@ MonoBehaviour:
         Id:
           Value: 1149378074360189638
       ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
+    - Path: Resources/DB/NestedAssetType|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 1200254765846001551
+      ResourcePath: DB/NestedAssetType
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|TrueDecision_1
       AssetRef:
         Id:
@@ -131,6 +141,11 @@ MonoBehaviour:
         Id:
           Value: 1324923448660611412
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Scenes/Gameplay_mesh
+      AssetRef:
+        Id:
+          Value: 1459794417083453152
+      ResourcePath: DB/Scenes/Gameplay_mesh
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshAgent_8
       AssetRef:
         Id:
@@ -151,6 +166,11 @@ MonoBehaviour:
         Id:
           Value: 1775941955512227993
       ResourcePath: DB/EntityPrototypes/Lion QPrefab
+    - Path: Resources/DB/Scenes/Gameplay
+      AssetRef:
+        Id:
+          Value: 1805011857375156809
+      ResourcePath: DB/Scenes/Gameplay
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
       AssetRef:
         Id:
@@ -181,6 +201,11 @@ MonoBehaviour:
         Id:
           Value: 2372440079921492754
       ResourcePath: DB/ExampleScene_Map_NavMesh_data
+    - Path: Resources/DB/Prototypes/Player|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2578665578925058542
+      ResourcePath: DB/Prototypes/Player
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|TrueDecision_5
       AssetRef:
         Id:
