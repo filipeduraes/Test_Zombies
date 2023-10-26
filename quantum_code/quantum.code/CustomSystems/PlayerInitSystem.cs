@@ -10,6 +10,7 @@ namespace Quantum
 
         public void OnPlayerDataSet(Frame f, PlayerRef playerRef)
         {
+            return;
             if (DoesPlayerExist(f, playerRef)) return;
             
             var playerPrototype = f.FindAsset<EntityPrototype>(PLAYER_PROTOTYPE);
