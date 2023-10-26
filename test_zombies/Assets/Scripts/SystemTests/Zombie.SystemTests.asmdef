@@ -14,7 +14,7 @@
     "precompiledReferences": [
         "quantum.code.dll",
         "nunit.framework.dll",
-        "quantum.core.dll"
+        "PhotonDeterministic.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

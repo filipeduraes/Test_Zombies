@@ -37,3 +37,42 @@ C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\
 C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.dll
 C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.pdb
 C:\Users\fhdd\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.genruntimeconfig.cache
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.exe
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.dll.config
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.deps.json
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.runtimeconfig.json
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.runtimeconfig.dev.json
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.console.runner.pdb
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\Microsoft.Win32.SystemEvents.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Drawing.Common.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Security.Permissions.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\System.Windows.Extensions.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\PhotonDeterministic.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.code.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.core.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.code.pdb
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\PhotonDeterministic.xml
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\bin\Debug\quantum.core.xml
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.csproj.AssemblyReference.cache
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.AssemblyInfoInputs.cache
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.AssemblyInfo.cs
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.csproj.CoreCompileInputs.cache
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.csproj.CopyComplete
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.dll
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.pdb
+C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\quantum_code\quantum.console.runner\obj\Debug\quantum.console.runner.genruntimeconfig.cache

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\quantum-api-sample\Assets\Photon\Quantum\Assemblies\</OutputPath>
+    <OutputPath>..\..\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\</OutputPath>
     <DefineConstants>TRACE;DEBUG;PROFILER_REPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -191,7 +191,8 @@
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ZombieTest\CharacterSystem.cs" />
+    <Compile Include="ZombieTest\CharacterMovement.cs" />
+    <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BotSDK\AI\BT\bt.qtn" />
@@ -221,6 +222,7 @@
     <Content Include="CustomState\DSL\Projectile.qtn" />
     <Content Include="CustomState\DSL\QAnimationState.qtn" />
     <Content Include="CustomState\DSL\Weapon.qtn" />
+    <Content Include="ZombieTest\Data\Input.qtn" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CustomState\DSL\Knockable.qtn" />
