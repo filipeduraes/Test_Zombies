@@ -849,6 +849,12 @@
      <Reference Include="Unity.Animation.Rigging.Editor">
      <HintPath>C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="com.unity.cinemachine.editor">
+     <HintPath>C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Cinemachine">
+     <HintPath>C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
@@ -878,6 +884,10 @@
     <ProjectReference Include="Sample.Editor.csproj">
       <Project>{b0edcf61-6978-2929-0482-caaab91b95ca}</Project>
       <Name>Sample.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zombie.Player.csproj">
+      <Project>{761746ac-d0af-ffb3-d0db-576074b66670}</Project>
+      <Name>Zombie.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

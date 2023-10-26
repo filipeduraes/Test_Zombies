@@ -1,23 +1,23 @@
-﻿using Photon.Deterministic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Quantum.ZombieTest.Systems;
 
-namespace Quantum {
-  public static class SystemSetup {
-    public static SystemBase[] CreateSystems(RuntimeConfig gameConfig, SimulationConfig simulationConfig) {
-      return new SystemBase[] {
+namespace Quantum 
+{
+  public static class SystemSetup 
+  {
+    public static SystemBase[] CreateSystems(RuntimeConfig gameConfig, SimulationConfig simulationConfig) 
+    {
+      return new SystemBase[] 
+      {
         // 2D / 3D related systems can be deleted if you only use either or neither.
 
         // pre-defined core systems
-        new Core.CullingSystem2D(), 
+        //new Core.CullingSystem2D(), 
         new Core.CullingSystem3D(),
 
         // Uncomment injection and retrieval system activate projectiles
         // new ProjectileHitQueryInjectionSystem(), 
         
-        new Core.PhysicsSystem2D(),
+        //new Core.PhysicsSystem2D(),
         new Core.PhysicsSystem3D(),
         
         new Core.NavigationSystem(),
@@ -27,6 +27,8 @@ namespace Quantum {
         new BotSDKDebuggerSystem(),
         
         // user systems go here
+        new CharacterSystem(),
+        
         // new ProjectileHitRetrievalSystem(), 
         new PlayerInitSystem(), 
         new ComponentsAddedRemovedSystem(), 
@@ -41,9 +43,7 @@ namespace Quantum {
         new AISystem(),
         
         // user command related systems
-        new PlayerCommandsSystem(),
-        
-
+        new PlayerCommandsSystem()
       };
     }
   }

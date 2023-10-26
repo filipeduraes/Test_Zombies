@@ -41,7 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\SystemTests\CharacterTests.cs" />
+     <Compile Include="Assets\Scripts\SystemTests\CharacterMovementTests.cs" />
+     <Compile Include="Assets\Scripts\SystemTests\AssertUtils.cs" />
      <None Include="Assets\Scripts\SystemTests\Zombie.SystemTests.asmdef" />
      <Folder Include="Assets\Scripts\SystemTests" />
      <Reference Include="UnityEngine">

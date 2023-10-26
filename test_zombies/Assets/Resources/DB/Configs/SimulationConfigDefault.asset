@@ -63,7 +63,7 @@ MonoBehaviour:
         RawValue: 655
       ShapeCastSoftTolerance:
         RawValue: 3275
-      AllowSleeping: 0
+      AllowSleeping: 1
       SleepTimeSec:
         RawValue: 32768
       LinearSleepTolerance:
@@ -137,7 +137,7 @@ MonoBehaviour:
       DefaultComponentBlockCapacity: 128
       ComponentTypeConfiguration: []
     AutoLoadSceneFromMap: 1
-    DeltaTimeType: 1
+    DeltaTimeType: 0
     HeapPageShift: 14
     HeapPageCount: 256
     HeapExtraCount: 0

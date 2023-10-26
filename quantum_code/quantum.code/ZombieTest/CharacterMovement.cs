@@ -13,5 +13,11 @@ namespace Quantum.ZombieTest
             
             return direction;
         }
+
+        public FPVector3 RotateMoveDirection(FPVector3 direction, FPVector3 forward)
+        {
+            FPQuaternion rotationOffset = FPQuaternion.FromToRotation(FPVector3.Forward, forward);
+            return rotationOffset * direction;
+        }
     }
 }
