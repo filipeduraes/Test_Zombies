@@ -191,6 +191,7 @@
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZombieTest\CharacterSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BotSDK\AI\BT\bt.qtn" />
@@ -227,7 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BotSDK\AI\HFSM\HFSMManager\" />
-    <Folder Include="ZombiesTest\Systems\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

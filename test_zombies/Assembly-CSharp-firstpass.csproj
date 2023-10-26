@@ -838,6 +838,10 @@
       <Project>{156bbd27-8cc0-6090-2a66-8bc76c03dce3}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Zombie.SystemTests.csproj">
+      <Project>{1d3d4d7a-d099-19b5-31e0-acaf1a4f5a07}</Project>
+      <Name>Zombie.SystemTests</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonWebSocket.csproj">
       <Project>{ea1ff468-c0ce-fbf4-9758-fced72d9ab25}</Project>
       <Name>PhotonWebSocket</Name>

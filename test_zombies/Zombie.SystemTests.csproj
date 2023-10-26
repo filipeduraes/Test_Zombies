@@ -11,12 +11,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
-    <ProjectGuid>{0efb9c11-da6e-d621-3743-dac53957c06e}</ProjectGuid>
+    <RootNamespace>Zombie.SystemTests</RootNamespace>
+    <ProjectGuid>{1d3d4d7a-d099-19b5-31e0-acaf1a4f5a07}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
+    <AssemblyName>Zombie.SystemTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -25,12 +25,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\Assembly-CSharp-Editor-firstpass\</OutputPath>
+    <OutputPath>Temp\Bin\Debug\Zombie.SystemTests\</OutputPath>
     <DefineConstants>UNITY_2021_3_28;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -41,34 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\PropertyDrawers\AIBlackboardInitialValueEntryDrawer.cs" />
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\CustomEditors\SettingsDatabaseEditor.cs" />
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\CustomEditors\AIConfigEditor.cs" />
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\PropertyDrawers\AIBlackboardEntryDrawer.cs" />
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\CustomEditors\AIBlackboardInitializerEditor.cs" />
-     <Compile Include="Assets\Plugins\Photon\QuantumDemo\Menu\Editor\MenuShortcuts.cs" />
-     <Compile Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\PropertyDrawers\AIConfigKeyValuePairDrawer.cs" />
-     <Compile Include="Assets\Plugins\Photon\QuantumDemo\Menu\Editor\PhotonAppVersionsPostprocessor.cs" />
-     <Compile Include="Assets\Plugins\Photon\QuantumDemo\Menu\Editor\PhotonPrivateAppVersionEditor.cs" />
-     <Compile Include="Assets\Plugins\Photon\QuantumDemo\Menu\Editor\SerializableEnterRoomParams.cs" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Icons\Slots\Simple" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Icons\Slots" />
-     <None Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Assemblies\protobuf-net.xml" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Welcome" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Icons" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Assemblies" />
-     <Folder Include="Assets\Plugins\Photon\QuantumDemo\Menu\Editor" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\BotSDKIcons" />
-     <Folder Include="Assets\Plugins\LiteNetLib\Editor" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Gizmos" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Gfx" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Icons\Slots\Complex" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\PropertyDrawers" />
-     <None Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources\Gizmos\GizmoAttribution.txt" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor\CustomEditors" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Resources" />
-     <Folder Include="Assets\Plugins\Photon\BotSDK\Scripts\Editor" />
+     <Compile Include="Assets\Scripts\SystemTests\CharacterTests.cs" />
+     <None Include="Assets\Scripts\SystemTests\Zombie.SystemTests.asmdef" />
+     <Folder Include="Assets\Scripts\SystemTests" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.28f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -333,44 +308,11 @@
      <Reference Include="quantum.code">
      <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\quantum.code.dll</HintPath>
      </Reference>
-     <Reference Include="websocket-sharp">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
-     </Reference>
-     <Reference Include="PhotonDeterministic">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\PhotonDeterministic.dll</HintPath>
-     </Reference>
-     <Reference Include="Photon3Unity3D">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Unsafe">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil.Mdb">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil.Pdb">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil.Rocks">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="quantum.ai.editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Assemblies\quantum.ai.editor.dll</HintPath>
-     </Reference>
-     <Reference Include="protobuf-net">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\BotSDK\VisualEditor\Editor\Assemblies\protobuf-net.dll</HintPath>
+     <Reference Include="nunit.framework">
+     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="quantum.core">
      <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\quantum.core.dll</HintPath>
-     </Reference>
-     <Reference Include="LiteNetLib">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\LiteNetLib\Editor\LiteNetLib.dll</HintPath>
-     </Reference>
-     <Reference Include="nunit.framework">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.28f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -759,117 +701,14 @@
      <Reference Include="UnityEditor.TestRunner">
      <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Postprocessing.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InputSystem">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.ProGrids.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.ProGrids.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.SpatialTracking">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Animation.Rigging">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Animation.Rigging.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Postprocessing.Runtime">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InputSystem.ForUI">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.SpatialTracking">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.ProGrids">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.ProGrids.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Animation.Rigging.Editor">
-     <HintPath>C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
-     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{4cc5fead-caa5-9bfd-3891-f273ea10c042}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonQuantumEditor.csproj">
-      <Project>{95c6e14b-3cc7-87da-fa07-ae378cebd2d4}</Project>
-      <Name>PhotonQuantumEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonQuantum.csproj">
-      <Project>{affb3d7e-1962-716d-dbb1-06dae886e543}</Project>
-      <Name>PhotonQuantum</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{156bbd27-8cc0-6090-2a66-8bc76c03dce3}</Project>
-      <Name>PhotonRealtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zombie.SystemTests.csproj">
-      <Project>{1d3d4d7a-d099-19b5-31e0-acaf1a4f5a07}</Project>
-      <Name>Zombie.SystemTests</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{ea1ff468-c0ce-fbf4-9758-fced72d9ab25}</Project>
-      <Name>PhotonWebSocket</Name>
-    </ProjectReference>
-    <ProjectReference Include="Sample.Editor.csproj">
-      <Project>{b0edcf61-6978-2929-0482-caaab91b95ca}</Project>
-      <Name>Sample.Editor</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
