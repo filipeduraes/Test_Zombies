@@ -1,0 +1,6 @@
+﻿input 
+{
+    button JumpButton;
+    FPVector2 Direction;
+    FPVector2 LookDelta;
+}

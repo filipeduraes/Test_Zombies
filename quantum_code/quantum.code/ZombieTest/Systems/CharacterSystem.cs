@@ -5,7 +5,7 @@ namespace Quantum.ZombieTest.Systems
     public unsafe class CharacterSystem : SystemMainThreadFilter<CharacterSystem.Filter>
     {
         private CharacterMovement movement;
-
+        
         public override void OnInit(Frame frame)
         {
             movement = new CharacterMovement();
@@ -18,6 +18,9 @@ namespace Quantum.ZombieTest.Systems
             FPVector3 relativeMoveDirection = movement.RotateMoveDirection(absoluteMoveDirection, filter.Transform->Forward);
 
             filter.Controller->Move(frame, filter.Entity, relativeMoveDirection);
+
+            if (playerInput->LookDelta != FPVector2.Zero)
+                filter.Transform->Rotate(FPVector3.Up, playerInput->LookDelta.X, false);
 
             if (playerInput->JumpButton)
                 filter.Controller->Jump(frame);

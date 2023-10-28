@@ -52,5 +52,27 @@ namespace Zombie.SystemTests
             AssertUtils.IsAlmostEqualTo(newMoveDirection.Y.AsFloat, expectedDirection.Y.AsFloat);
             AssertUtils.IsAlmostEqualTo(newMoveDirection.Z.AsFloat, expectedDirection.Z.AsFloat);
         }
+
+        [Test]
+        public void Look_Delta_Rotates_Direction_Accordingly()
+        {
+            FPVector3 originalDirection = FPVector3.Forward;
+
+            FPVector3 lookDirection = movement.RotateLookDirection(originalDirection, new FPVector2(1, 0));
+            FP dot = FPVector3.Dot(FPVector3.Right, lookDirection);
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, new FPVector2(-1, 0));
+            dot = FPVector3.Dot(FPVector3.Right, lookDirection);
+            Assert.That(dot.AsFloat, Is.LessThan(-0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, new FPVector2(0, 1));
+            dot = FPVector3.Dot(FPVector3.Up, lookDirection);
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, new FPVector2(0, -1));
+            dot = FPVector3.Dot(FPVector3.Up, lookDirection);
+            Assert.That(dot.AsFloat, Is.LessThan(-0.05f));
+        }
     }
 }
