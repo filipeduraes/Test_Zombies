@@ -1,0 +1,4 @@
+component Character 
+{
+    EntityRef Look;
+}

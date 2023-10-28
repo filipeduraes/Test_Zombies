@@ -222,7 +222,7 @@
     <Content Include="CustomState\DSL\Projectile.qtn" />
     <Content Include="CustomState\DSL\QAnimationState.qtn" />
     <Content Include="CustomState\DSL\Weapon.qtn" />
-    <Content Include="ZombieTest\DSL\character.qtn" />
+    <Content Include="ZombieTest\DSL\Character.qtn" />
     <Content Include="ZombieTest\DSL\Input.qtn" />
   </ItemGroup>
   <ItemGroup>

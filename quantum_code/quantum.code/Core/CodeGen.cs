@@ -2394,17 +2394,17 @@ namespace Quantum {
     public const Int32 SIZE = 8;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
-    public FP Amount;
+    public EntityRef Look;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 277;
-        hash = hash * 31 + Amount.GetHashCode();
+        hash = hash * 31 + Look.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Character*)ptr;
-        FP.Serialize(&p->Amount, serializer);
+        EntityRef.Serialize(&p->Look, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -4099,7 +4099,7 @@ namespace Quantum.Prototypes {
   [System.SerializableAttribute()]
   [Prototype(typeof(Character))]
   public sealed unsafe partial class Character_Prototype : ComponentPrototype<Character> {
-    public FP Amount;
+    public MapEntityId Look;
     partial void MaterializeUser(Frame frame, ref Character result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Character component = default;
@@ -4107,7 +4107,7 @@ namespace Quantum.Prototypes {
       return f.Set(entity, component) == SetResult.ComponentAdded;
     }
     public void Materialize(Frame frame, ref Character result, in PrototypeMaterializationContext context) {
-      result.Amount = this.Amount;
+      PrototypeValidator.FindMapEntity(this.Look, in context, out result.Look);
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {

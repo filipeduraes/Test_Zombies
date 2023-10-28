@@ -62,6 +62,18 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Character))]
+  public class Character_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Character_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Look;
+
+    public sealed override Quantum.Prototypes.Character_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Character_Prototype();
+      converter.Convert(this.Look, out result.Look);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.EntitySpawner))]
   public class EntitySpawner_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.EntitySpawner_Prototype> {
     [Quantum.Inspector.HideInInspectorAttribute()]
