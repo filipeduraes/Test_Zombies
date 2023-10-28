@@ -37,13 +37,13 @@ namespace Zombie.Player
         private void CheckInput(CallbackPollInput callback)
         {
             Vector2 direction = PlayerActions.Move.ReadValue<Vector2>();
-            Vector2 lookDelta = PlayerActions.Camera.ReadValue<Vector2>() * 0.2f;
+            Vector2 lookDelta = PlayerActions.Camera.ReadValue<Vector2>() * 0.5f;
 
             accumulator = Vector2.Lerp(accumulator, lookDelta, snappiness * Time.deltaTime);
 
             Input input = callback.Input;
             input.Direction = direction.ToFPVector2();
-            input.LookDelta = lookDelta.ToFPVector2();
+            input.LookDelta = accumulator.ToFPVector2();
             input.JumpButton = PlayerActions.Jump.IsPressed();
 
             callback.SetInput(input, DeterministicInputFlags.Repeatable);

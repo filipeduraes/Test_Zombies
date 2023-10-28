@@ -19,8 +19,10 @@ namespace Zombie.Player
 
         private void UpdateLookDirection(EventLookDirectionChanged callback)
         {
-            transform.localPosition = -callback.direction.ToUnityVector3(); 
-            transform.forward = callback.direction.ToUnityVector3();
+            Vector3 direction = callback.direction.ToUnityVector3();
+
+            if (Vector3.Dot(direction, transform.parent.forward) > 0.05f) 
+                transform.forward = direction;
         }
     }
 }

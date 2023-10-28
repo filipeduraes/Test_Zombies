@@ -22,7 +22,7 @@ namespace Quantum.ZombieTest.Systems
             
             if (playerInput->LookDelta != FPVector2.Zero)
             {
-                lookDirection = movement.RotateLookDirection(lookDirection, playerInput->LookDelta);
+                lookDirection = movement.RotateLookDirection(lookDirection, filter.Transform->Right, playerInput->LookDelta);
                 FPVector3 forwardProjection = FPVector3.ProjectOnPlane(lookDirection, FPVector3.Up);
                 
                 frame.Events.LookDirectionChanged(lookDirection);

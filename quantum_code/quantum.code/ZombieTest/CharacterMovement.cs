@@ -20,13 +20,17 @@ namespace Quantum.ZombieTest
             return rotationOffset * direction;
         }
 
-        public FPVector3 RotateLookDirection(FPVector3 originalLookDirection, FPVector2 delta)
+        public FPVector3 RotateLookDirection(FPVector3 lookForward, FPVector3 lookRight, FPVector2 delta)
         {
-            FPQuaternion offsetXRotation = FPQuaternion.AngleAxis(delta.X * 10, FPVector3.Up);
-            FPQuaternion offsetYRotation = FPQuaternion.AngleAxis(-delta.Y * 10, FPVector3.Right);
+            FPVector3 lookUp = FPVector3.Cross(lookForward, lookRight);
+            FPQuaternion offsetXRotation = FPQuaternion.AngleAxis(delta.X, lookUp);
+            FPQuaternion offsetYRotation = FPQuaternion.AngleAxis(delta.Y, lookRight);
+
+            FPVector3 lookDirection = offsetXRotation * lookForward;
+            FPVector3 lookProjection = FPVector3.ProjectOnPlane(lookForward, FPVector3.Up);
             
-            FPVector3 lookDirection = offsetXRotation * originalLookDirection;
-            lookDirection = offsetYRotation * lookDirection;
+            if(FPVector3.Dot(offsetYRotation * lookForward, lookProjection).AsFloat > 0.05f)
+                lookDirection = offsetYRotation * lookDirection;
             
             return lookDirection;
         }
