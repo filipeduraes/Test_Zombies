@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\</OutputPath>
+    <OutputPath>..\..\test_zombies\Assets\Photon\Quantum\Assemblies\</OutputPath>
     <DefineConstants>TRACE;DEBUG;PROFILER_REPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\quantum-api-sample\Assets\Photon\Quantum\Assemblies\</OutputPath>
+    <OutputPath>..\..\test_zombies\Assets\Photon\Quantum\Assemblies\</OutputPath>
     <DefineConstants>PROFILER_REPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -222,18 +222,19 @@
     <Content Include="CustomState\DSL\Projectile.qtn" />
     <Content Include="CustomState\DSL\QAnimationState.qtn" />
     <Content Include="CustomState\DSL\Weapon.qtn" />
-    <Content Include="ZombieTest\Data\Input.qtn" />
+    <Content Include="ZombieTest\DSL\Input.qtn" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CustomState\DSL\Knockable.qtn" />
     <None Include="CustomState\DSL\Shield.qtn" />
+    <None Include="ZombieTest\DSL\LookDirectionChanged.qtn" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BotSDK\AI\HFSM\HFSMManager\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)..\..\tools\codegen_unity\quantum.codegen.unity.host.exe" "$(TargetDir)\quantum.code.dll" "$(SolutionDir)..\quantum-api-sample\Assets"</PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)..\..\tools\codegen_unity\quantum.codegen.unity.host.exe" "$(TargetDir)\quantum.code.dll" "$(SolutionDir)..\test_zombies\Assets"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>"$(ProjectDir)..\..\tools\codegen\quantum.codegen.host.exe" "$(ProjectPath)"</PreBuildEvent>

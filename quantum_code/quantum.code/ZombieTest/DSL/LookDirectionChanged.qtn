@@ -1,0 +1,4 @@
+event LookDirectionChanged
+{
+	FPVector3 direction;
+}

@@ -1802,7 +1802,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 120;
+    public const Int32 SIZE = 136;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(32)]
     public Button Action;
@@ -1816,6 +1816,8 @@ namespace Quantum {
     public Button Jump;
     [FieldOffset(80)]
     public Button JumpButton;
+    [FieldOffset(120)]
+    public FPVector2 LookDelta;
     [FieldOffset(92)]
     public Button MoveBack;
     [FieldOffset(0)]
@@ -1836,6 +1838,7 @@ namespace Quantum {
         hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
         hash = hash * 31 + JumpButton.GetHashCode();
+        hash = hash * 31 + LookDelta.GetHashCode();
         hash = hash * 31 + MoveBack.GetHashCode();
         hash = hash * 31 + MovementHorizontal.GetHashCode();
         hash = hash * 31 + MovementVertical.GetHashCode();
@@ -1887,6 +1890,7 @@ namespace Quantum {
         Button.Serialize(&p->JumpButton, serializer);
         Button.Serialize(&p->MoveBack, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
+        FPVector2.Serialize(&p->LookDelta, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1935,7 +1939,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1256;
+    public const Int32 SIZE = 1352;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(48)]
     public BotSDKData BotSDKData;
@@ -1947,20 +1951,20 @@ namespace Quantum {
     public AssetRefMap Map;
     [FieldOffset(24)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(960)]
+    [FieldOffset(1056)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet6 PlayerLastConnectionState;
     [FieldOffset(32)]
     public RNGSession RngSession;
-    [FieldOffset(832)]
-    public BitSet1024 Systems;
     [FieldOffset(112)]
+    public BitSet1024 Systems;
+    [FieldOffset(240)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[720];
+    private fixed Byte _input_[816];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 120, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 136, 6); }
       }
     }
     public override Int32 GetHashCode() {
@@ -1988,8 +1992,8 @@ namespace Quantum {
         RNGSession.Serialize(&p->RngSession, serializer);
         Quantum.BotSDKData.Serialize(&p->BotSDKData, serializer);
         FrameMetaData.Serialize(&p->FrameMetaData, serializer);
-        FixedArray.Serialize(p->input, serializer, StaticDelegates.SerializeInput);
         Quantum.BitSet1024.Serialize(&p->Systems, serializer);
+        FixedArray.Serialize(p->input, serializer, StaticDelegates.SerializeInput);
         PhysicsSceneSettings.Serialize(&p->PhysicsSettings, serializer);
     }
   }
@@ -2983,6 +2987,7 @@ namespace Quantum {
       i->Jump = i->Jump.Update(this.Number, input.Jump);
       i->JumpButton = i->JumpButton.Update(this.Number, input.JumpButton);
       i->Direction = input.Direction;
+      i->LookDelta = input.LookDelta;
     }
     public Input* GetPlayerInput(Int32 player) {
       if ((uint)player >= (uint)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
@@ -2991,7 +2996,7 @@ namespace Quantum {
     public unsafe partial struct FrameSignals {
     }
     public unsafe partial struct FrameEvents {
-      public const Int32 EVENT_TYPE_COUNT = 11;
+      public const Int32 EVENT_TYPE_COUNT = 12;
       public static Int32 GetParentEventID(Int32 eventID) {
         switch (eventID) {
           case EventOnDamageDealt.ID: return EventResourceEvent.ID;
@@ -3016,6 +3021,7 @@ namespace Quantum {
           case EventOnPickUpHealthPotion.ID: return typeof(EventOnPickUpHealthPotion);
           case EventOnPickUpManaPotion.ID: return typeof(EventOnPickUpManaPotion);
           case EventOnPickUpCoins.ID: return typeof(EventOnPickUpCoins);
+          case EventLookDirectionChanged.ID: return typeof(EventLookDirectionChanged);
           default: throw new System.ArgumentOutOfRangeException("eventID");
         }
       }
@@ -3089,6 +3095,12 @@ namespace Quantum {
         var ev = _f.Context.AcquireEvent<EventOnPickUpCoins>(EventOnPickUpCoins.ID);
         ev.Amount = Amount;
         ev.Target = Target;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventLookDirectionChanged LookDirectionChanged(FPVector3 direction) {
+        var ev = _f.Context.AcquireEvent<EventLookDirectionChanged>(EventLookDirectionChanged.ID);
+        ev.direction = direction;
         _f.AddEvent(ev);
         return ev;
       }
@@ -3395,6 +3407,31 @@ namespace Quantum {
         var hash = 79;
         hash = hash * 31 + Amount.GetHashCode();
         hash = hash * 31 + Target.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventLookDirectionChanged : EventBase {
+    public new const Int32 ID = 11;
+    public FPVector3 direction;
+    protected EventLookDirectionChanged(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventLookDirectionChanged() : 
+        base(11, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 83;
+        hash = hash * 31 + direction.GetHashCode();
         return hash;
       }
     }
@@ -4368,6 +4405,7 @@ namespace Quantum.Prototypes {
     public Button Jump;
     public Button JumpButton;
     public FPVector2 Direction;
+    public FPVector2 LookDelta;
     partial void MaterializeUser(Frame frame, ref Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Input result, in PrototypeMaterializationContext context) {
       result.Action = this.Action;
@@ -4376,6 +4414,7 @@ namespace Quantum.Prototypes {
       result.Direction = this.Direction;
       result.Jump = this.Jump;
       result.JumpButton = this.JumpButton;
+      result.LookDelta = this.LookDelta;
       result.MoveBack = this.MoveBack;
       result.MovementHorizontal = this.MovementHorizontal;
       result.MovementVertical = this.MovementVertical;

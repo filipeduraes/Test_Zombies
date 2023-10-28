@@ -14,7 +14,7 @@ namespace Zombie.SystemTests
         [SetUp]
         public void Setup()
         {
-            FPLut.Init(@"Assets\Plugins\Photon\Quantum\Resources\LUT");
+            FPLut.Init(@"Assets\Photon\Quantum\Resources\LUT");
             movement = new CharacterMovement();
         }
         
@@ -51,6 +51,51 @@ namespace Zombie.SystemTests
             AssertUtils.IsAlmostEqualTo(newMoveDirection.X.AsFloat, expectedDirection.X.AsFloat);
             AssertUtils.IsAlmostEqualTo(newMoveDirection.Y.AsFloat, expectedDirection.Y.AsFloat);
             AssertUtils.IsAlmostEqualTo(newMoveDirection.Z.AsFloat, expectedDirection.Z.AsFloat);
+        }
+
+        [Test]
+        public void Look_Delta_Rotates_Direction_Accordingly()
+        {
+            FPVector3 originalDirection = FPVector3.Forward;
+            FPVector3 lookRight = FPVector3.Right;
+            
+            FPVector3 lookDirection = movement.RotateLookDirection(originalDirection, lookRight,  new FPVector2(5, 0));
+            FP dot = FPVector3.Dot(lookRight, lookDirection);
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(-5, 0));
+            dot = FPVector3.Dot(lookRight, lookDirection);
+            Assert.That(dot.AsFloat, Is.LessThan(-0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(0, 5));
+            dot = FPVector3.Dot(FPVector3.Up, lookDirection);
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(0, -5));
+            dot = FPVector3.Dot(FPVector3.Up, lookDirection);
+            Assert.That(dot.AsFloat, Is.LessThan(-0.05f));
+        }
+
+        [Test]
+        public void Look_Direction_Y_Should_Not_Trespass_Vertical_Axis()
+        {
+            FPVector3 originalDirection = FPVector3.Forward;
+            FPVector3 lookRight = FPVector3.Right;
+            
+            FPVector3 lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(0, 100));
+            FP dot = FPVector3.Dot(FPVector3.Forward, lookDirection);
+            
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
+            // Prevents inverting axis
+            lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(0, 100));
+            Assert.That(dot.AsFloat, Is.LessThanOrEqualTo(FPVector3.Dot(FPVector3.Forward, lookDirection).AsFloat));
+            
+            lookDirection = movement.RotateLookDirection(originalDirection, lookRight, new FPVector2(0, -100));
+            dot = FPVector3.Dot(FPVector3.Forward, lookDirection);
+            
+            Assert.That(dot.AsFloat, Is.GreaterThan(0.05f));
+            
         }
     }
 }
