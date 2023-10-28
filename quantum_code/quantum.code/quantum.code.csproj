@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\quantum-api-sample\Assets\Photon\Quantum\Assemblies\</OutputPath>
+    <OutputPath>..\..\test_zombies\Assets\Photon\Quantum\Assemblies\</OutputPath>
     <DefineConstants>PROFILER_REPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -222,12 +222,12 @@
     <Content Include="CustomState\DSL\Projectile.qtn" />
     <Content Include="CustomState\DSL\QAnimationState.qtn" />
     <Content Include="CustomState\DSL\Weapon.qtn" />
-    <Content Include="ZombieTest\DSL\Character.qtn" />
     <Content Include="ZombieTest\DSL\Input.qtn" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CustomState\DSL\Knockable.qtn" />
     <None Include="CustomState\DSL\Shield.qtn" />
+    <None Include="ZombieTest\DSL\LookDirectionChanged.qtn" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BotSDK\AI\HFSM\HFSMManager\" />

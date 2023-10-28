@@ -16,3 +16,5 @@ C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugin
 C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Assets\Plugins\Photon\Quantum\Assemblies\quantum.code.pdb
 C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Assets\Photon\Quantum\Assemblies\quantum.code.dll
 C:\Users\Filipe Durães\Documents\GitHub\Test_Zombies\test_zombies\Assets\Photon\Quantum\Assemblies\quantum.code.pdb
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Photon\Quantum\Assemblies\quantum.code.dll
+C:\Users\fhdd\Documents\GitHub\Test_Zombies\test_zombies\Assets\Photon\Quantum\Assemblies\quantum.code.pdb

@@ -10,12 +10,11 @@ namespace Zombie.Player
     {
         [SerializeField] private float snappiness = 10.0f;
 
-
         private GameplayInputs.PlayerActions PlayerActions => inputs.Player;
         private GameplayInputs inputs;
         private Vector2 lookVelocity;
         private Vector2 currentLookInput;
-        private Vector2 xAccumulator = Vector2.zero;
+        private Vector2 accumulator = Vector2.zero;
 
         private void Awake()
         {
@@ -38,13 +37,13 @@ namespace Zombie.Player
         private void CheckInput(CallbackPollInput callback)
         {
             Vector2 direction = PlayerActions.Move.ReadValue<Vector2>();
-            Vector2 lookDelta = PlayerActions.Camera.ReadValue<Vector2>();
+            Vector2 lookDelta = PlayerActions.Camera.ReadValue<Vector2>() * 0.2f;
 
-            xAccumulator = Vector2.Lerp(xAccumulator, lookDelta, snappiness * Time.deltaTime);
+            accumulator = Vector2.Lerp(accumulator, lookDelta, snappiness * Time.deltaTime);
 
             Input input = callback.Input;
             input.Direction = direction.ToFPVector2();
-            input.LookDelta = xAccumulator.ToFPVector2();
+            input.LookDelta = lookDelta.ToFPVector2();
             input.JumpButton = PlayerActions.Jump.IsPressed();
 
             callback.SetInput(input, DeterministicInputFlags.Repeatable);

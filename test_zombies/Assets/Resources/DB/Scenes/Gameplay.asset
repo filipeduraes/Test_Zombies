@@ -87,7 +87,6 @@ MonoBehaviour:
   Prototypes:
   - AIBlackboardComponent: []
     BTAgent: []
-    Character: []
     CharacterInventory: []
     CompoundBTAgent: []
     EntitySpawner: []
@@ -97,7 +96,6 @@ MonoBehaviour:
     Health: []
     Knockable: []
     Mana: []
-    Movement: []
     PickUpSlot: []
     PlayerID: []
     Projectile: []
@@ -173,51 +171,6 @@ MonoBehaviour:
           RawValue: 0
         Z:
           RawValue: 0
-    View: []
-    PhysicsJoints2D: []
-    PhysicsJoints3D: []
-  - AIBlackboardComponent: []
-    BTAgent: []
-    Character: []
-    CharacterInventory: []
-    CompoundBTAgent: []
-    EntitySpawner: []
-    GOAPAgent: []
-    HFSMAgent: []
-    Hazard: []
-    Health: []
-    Knockable: []
-    Mana: []
-    Movement: []
-    PickUpSlot: []
-    PlayerID: []
-    Projectile: []
-    QAnimationState: []
-    Shield: []
-    UTAgent: []
-    Weapon: []
-    CharacterController2D: []
-    CharacterController3D: []
-    NavMeshAvoidanceAgent: []
-    NavMeshAvoidanceObstacle: []
-    NavMeshPathfinder: []
-    NavMeshSteeringAgent: []
-    PhysicsBody2D: []
-    PhysicsBody3D: []
-    PhysicsCollider2D: []
-    PhysicsCollider3D: []
-    PhysicsCallbacks2D: []
-    PhysicsCallbacks3D: []
-    Transform2D:
-    - Position:
-        X:
-          RawValue: 0
-        Y:
-          RawValue: 0
-      Rotation:
-        RawValue: 0
-    Transform2DVertical: []
-    Transform3D: []
     View: []
     PhysicsJoints2D: []
     PhysicsJoints3D: []
