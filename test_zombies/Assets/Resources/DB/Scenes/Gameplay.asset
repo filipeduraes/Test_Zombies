@@ -372,14 +372,18 @@ MonoBehaviour:
       MutableMode: 0
     MapEntities: []
   Prototypes:
-  - AIBlackboardComponent: []
+  - AIBlackboardComponent:
+    - Board:
+        Id:
+          Value: 2752945826699186964
+      Entries: []
     BTAgent:
     - Tree:
         Id:
           Value: 4402728546861690606
       Current:
         Id:
-          Value: 0
+          Value: 3217770142462909898
       NodesStatus: 
       ServicesEndTimes: []
       BTDataValues: []

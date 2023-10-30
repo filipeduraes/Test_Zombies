@@ -191,6 +191,7 @@
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZombieTest\AI\Actions\FindClosestCharacter.cs" />
     <Compile Include="ZombieTest\AI\Decorators\IsInsideVision.cs" />
     <Compile Include="ZombieTest\CharacterMovement.cs" />
     <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />

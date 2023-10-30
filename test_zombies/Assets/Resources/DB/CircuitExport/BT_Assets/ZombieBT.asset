@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-684575015224444521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09568acd7b0537545bfc31fc5d81b3c5, type: 3}
+  m_Name: FindClosestCharacter_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_1
+      Guid:
+        Value: 2455473932978594343
+    Label: FindClosestCharacter
+    Id: 3
+    Services: []
+    result:
+      Source: 3
+      Key: ClosestCharacter
+      FunctionRef:
+        Id:
+          Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21,9 +47,9 @@ MonoBehaviour:
     Id: 0
     Child:
       Id:
-        Value: 2761789350462195515
+        Value: 3217770142462909898
     AbortType: 0
-    NodesAmount: 3
+    NodesAmount: 4
 --- !u!114 &1450213541846918365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,7 +69,11 @@ MonoBehaviour:
         Value: 3217770142462909898
     Label: BTSequence
     Id: 1
-    Children: []
+    Children:
+    - Id:
+        Value: 2455473932978594343
+    - Id:
+        Value: 3441775180214140898
     Services: []
     TopmostDecorator:
       Id:
@@ -51,7 +81,7 @@ MonoBehaviour:
     CurrentChildIndex:
       Index: 0
     IsDynamic: 0
---- !u!114 &6726790436030645028
+--- !u!114 &1883447952656357363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,19 +90,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b2a628bda8d7454c8acd7c8ba178c82, type: 3}
-  m_Name: IsInsideVision_0
+  m_Script: {fileID: 11500000, guid: 6d6d41307c39f074c9ecc777757b546a, type: 3}
+  m_Name: DebugLeaf_0
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|IsInsideVision_0
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|DebugLeaf_0
       Guid:
-        Value: 2761789350462195515
-    Label: IsInsideVision
+        Value: 3441775180214140898
+    Label: DebugLeaf
     Id: 2
-    Child:
-      Id:
-        Value: 3217770142462909898
-    AbortType: 0
-    minDistance:
-      RawValue: 65536
+    Services: []
+    Message: 

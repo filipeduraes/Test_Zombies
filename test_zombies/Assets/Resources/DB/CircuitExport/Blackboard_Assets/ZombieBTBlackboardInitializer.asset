@@ -28,7 +28,7 @@ MonoBehaviour:
         AsByte: 0
         AsInteger: 0
         AsFP:
-          RawValue: 65536
+          RawValue: 524288
         AsFPVector2:
           X:
             RawValue: 0

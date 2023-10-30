@@ -24,3 +24,6 @@ MonoBehaviour:
     - Type: 3
       Key:
         Key: ViewDistance
+    - Type: 6
+      Key:
+        Key: ClosestCharacter
