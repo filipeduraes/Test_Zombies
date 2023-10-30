@@ -63,6 +63,11 @@ MonoBehaviour:
         Id:
           Value: 353696852809583513
       ResourcePath: DB/Prototypes/Player
+    - Path: Resources/DB/Data/AI/NavMeshAgentConfigAsset
+      AssetRef:
+        Id:
+          Value: 438239720525103854
+      ResourcePath: DB/Data/AI/NavMeshAgentConfigAsset
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetPositionRandom_5
       AssetRef:
         Id:
@@ -243,6 +248,16 @@ MonoBehaviour:
         Id:
           Value: 2734409539278796592
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboard
+      AssetRef:
+        Id:
+          Value: 2752945826699186964
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboard
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|IsInsideVision_0
+      AssetRef:
+        Id:
+          Value: 2761789350462195515
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityView
       AssetRef:
         Id:
@@ -278,6 +293,11 @@ MonoBehaviour:
         Id:
           Value: 3043672044863171840
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboardInitializer
+      AssetRef:
+        Id:
+          Value: 3045838966159883119
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboardInitializer
     - Path: Resources/DB/EntityPrototypes/Stone Round QPrefab|EntityPrototype
       AssetRef:
         Id:
@@ -298,6 +318,11 @@ MonoBehaviour:
         Id:
           Value: 3206195024203956000
       ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
+      AssetRef:
+        Id:
+          Value: 3217770142462909898
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI
       AssetRef:
         Id:
@@ -338,11 +363,6 @@ MonoBehaviour:
         Id:
           Value: 3548975581746519400
       ResourcePath: DB/QAssets/DefaultPotionMana
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
-      AssetRef:
-        Id:
-          Value: 3642953001645898963
-      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshTarget_7
       AssetRef:
         Id:

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6212489489583160079}
   - component: {fileID: 690962870112571032}
   - component: {fileID: 8907666183502447019}
+  - component: {fileID: 7195804835333985230}
   m_Layer: 13
   m_Name: Zombie
   m_TagString: Untagged
@@ -273,6 +274,36 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7195804835333985230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028862022579483366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00fcde54fdc245c49a2838b8dd6d8434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    AgentConfig:
+      Id:
+        Value: 438239720525103854
+    InitialTarget:
+      _hasValue: 0
+      _value:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    InitialTargetNavMesh:
+      Id:
+        Value: 0
+    InitialTargetNavMeshName: 
+  InitialTargetNavMeshReference: {fileID: 0}
 --- !u!1001 &2192313858194408768
 PrefabInstance:
   m_ObjectHideFlags: 0

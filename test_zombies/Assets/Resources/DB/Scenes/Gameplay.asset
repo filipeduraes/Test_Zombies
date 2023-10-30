@@ -89,7 +89,7 @@ MonoBehaviour:
     BTAgent:
     - Tree:
         Id:
-          Value: 0
+          Value: 4402728546861690606
       Current:
         Id:
           Value: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
       DynamicComposites: []
       Config:
         Id:
-          Value: 0
+          Value: 675802829262082167
       AbortNodeId: 0
     CharacterInventory: []
     CompoundBTAgent: []

@@ -99,6 +99,7 @@ namespace Quantum.Editor {
       public Quantum.ItemCoin[] ItemCoin = {};
       public Quantum.ItemPotionHealth[] ItemPotionHealth = {};
       public Quantum.ItemPotionMana[] ItemPotionMana = {};
+      public Quantum.ZombieTest.AI.Decorators.IsInsideVision[] IsInsideVision = {};
       public Quantum.BinaryData[] BinaryData = {};
       public Quantum.CharacterController2DConfig[] CharacterController2DConfig = {};
       public Quantum.CharacterController3DConfig[] CharacterController3DConfig = {};
