@@ -78,6 +78,11 @@ MonoBehaviour:
         Id:
           Value: 630547417091587576
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/Data/AI/ZombieAIConfig
+      AssetRef:
+        Id:
+          Value: 675802829262082167
+      ResourcePath: DB/Data/AI/ZombieAIConfig
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|TrueDecision_0
       AssetRef:
         Id:
@@ -173,6 +178,11 @@ MonoBehaviour:
         Id:
           Value: 1805011857375156809
       ResourcePath: DB/Scenes/Gameplay
+    - Path: Resources/DB/AIConfigAsset
+      AssetRef:
+        Id:
+          Value: 1805344965358539058
+      ResourcePath: DB/AIConfigAsset
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
       AssetRef:
         Id:
@@ -183,6 +193,11 @@ MonoBehaviour:
         Id:
           Value: 1885450974166878644
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/Zombie|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2008970885342591419
+      ResourcePath: DB/Prototypes/Zombie
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot
       AssetRef:
         Id:
@@ -323,6 +338,11 @@ MonoBehaviour:
         Id:
           Value: 3548975581746519400
       ResourcePath: DB/QAssets/DefaultPotionMana
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
+      AssetRef:
+        Id:
+          Value: 3642953001645898963
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetNavMeshTarget_7
       AssetRef:
         Id:
@@ -358,6 +378,11 @@ MonoBehaviour:
         Id:
           Value: 4370697924318058966
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT
+      AssetRef:
+        Id:
+          Value: 4402728546861690606
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/QAssets/SlimeNavMeshAgentDefault
       AssetRef:
         Id:
@@ -373,3 +398,8 @@ MonoBehaviour:
         Id:
           Value: 4421376895616627221
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/Zombie|EntityView
+      AssetRef:
+        Id:
+          Value: 4516035085203949318
+      ResourcePath: DB/Prototypes/Zombie
