@@ -18,26 +18,26 @@ MonoBehaviour:
     _resources: []
   ResourcesGroup:
     _resources:
-    - Path: Resources/DB/Configs/DefaultPhysicsMaterial
+    - Path: Resources/DB/Data/Configs/DefaultPhysicsMaterial
       AssetRef:
         Id:
           Value: 1
-      ResourcePath: DB/Configs/DefaultPhysicsMaterial
-    - Path: Resources/DB/Configs/DefaultNavMeshAgentConfig
+      ResourcePath: DB/Data/Configs/DefaultPhysicsMaterial
+    - Path: Resources/DB/Data/Configs/DefaultNavMeshAgentConfig
       AssetRef:
         Id:
           Value: 2
-      ResourcePath: DB/Configs/DefaultNavMeshAgentConfig
-    - Path: Resources/DB/Configs/DefaultCharacterController2D
+      ResourcePath: DB/Data/Configs/DefaultNavMeshAgentConfig
+    - Path: Resources/DB/Data/Configs/DefaultCharacterController3D
       AssetRef:
         Id:
-          Value: 3
-      ResourcePath: DB/Configs/DefaultCharacterController2D
-    - Path: Resources/DB/Configs/SimulationConfig
+          Value: 4
+      ResourcePath: DB/Data/Configs/DefaultCharacterController3D
+    - Path: Resources/DB/Data/Configs/SimulationConfig
       AssetRef:
         Id:
           Value: 5
-      ResourcePath: DB/Configs/SimulationConfig
+      ResourcePath: DB/Data/Configs/SimulationConfig
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Go to Target Position_3
       AssetRef:
         Id:
@@ -348,11 +348,11 @@ MonoBehaviour:
         Id:
           Value: 3505610095514768427
       ResourcePath: DB/EntityPrototypes/PotionHealth QPrefab
-    - Path: Resources/DB/Configs/SimulationConfigDefault
+    - Path: Resources/DB/Data/Configs/SimulationConfigDefault
       AssetRef:
         Id:
           Value: 3519286922392886800
-      ResourcePath: DB/Configs/SimulationConfigDefault
+      ResourcePath: DB/Data/Configs/SimulationConfigDefault
     - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityPrototype
       AssetRef:
         Id:

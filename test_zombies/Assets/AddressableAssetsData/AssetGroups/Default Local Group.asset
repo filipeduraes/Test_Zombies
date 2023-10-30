@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: e8fa1498c8dc42347bafdfb686c4994b
-  m_SerializeEntries:
-  - m_GUID: 2ea2a06c76cc35d49be8a25324e787d4
-    m_Address: DB/Configs/DefaultCharacterController3D
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: edd5904d0866c494684f51b5e3675fd2, type: 2}
   m_SchemaSet:
