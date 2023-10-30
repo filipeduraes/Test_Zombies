@@ -133,7 +133,7 @@ MonoBehaviour:
       LayerMatrix: fffefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     Entities:
       CommitCommandsMode: 0
-      DefaultEntityCapacity: 1024
+      DefaultEntityCapacity: 200
       DefaultComponentBlockCapacity: 128
       ComponentTypeConfiguration: []
     AutoLoadSceneFromMap: 1

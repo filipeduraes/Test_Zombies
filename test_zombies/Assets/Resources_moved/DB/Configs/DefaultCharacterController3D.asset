@@ -28,9 +28,13 @@ MonoBehaviour:
       RawValue: 32768
     MaxPenetration:
       RawValue: 6553
+    PenetrationCorrection:
+      RawValue: 32768
     Extent:
       RawValue: 13107
     MaxContacts: 2
+    LayerMask:
+      BitMask: 16183
     UseManifoldNormal: 0
     AirControl: 1
     Acceleration:
@@ -38,14 +42,14 @@ MonoBehaviour:
     Braking:
       RawValue: 655360
     BaseJumpImpulse:
-      RawValue: 458752
+      RawValue: 655360
     MaxSpeed:
-      RawValue: 393216
+      RawValue: 524288
     Gravity:
       X:
         RawValue: 0
       Y:
-        RawValue: -589824
+        RawValue: -1310720
       Z:
         RawValue: 0
     MaxSlope:

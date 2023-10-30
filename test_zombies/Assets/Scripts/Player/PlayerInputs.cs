@@ -1,6 +1,7 @@
 using Photon.Deterministic;
 using Quantum;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zombie.Inputs;
 using Input = Quantum.Input;
 
@@ -27,11 +28,13 @@ namespace Zombie.Player
         private void OnEnable()
         {
             QuantumCallback.Subscribe<CallbackPollInput>(this, CheckInput);
+            inputs.UI.Cancel.performed += ToggleCursor;
         }
 
         private void OnDisable()
         {
             QuantumCallback.UnsubscribeListener<CallbackPollInput>(this);
+            inputs.UI.Cancel.performed -= ToggleCursor;
         }
 
         private void CheckInput(CallbackPollInput callback)
@@ -44,9 +47,15 @@ namespace Zombie.Player
             Input input = callback.Input;
             input.Direction = direction.ToFPVector2();
             input.LookDelta = accumulator.ToFPVector2();
-            input.JumpButton = PlayerActions.Jump.IsPressed();
+            input.Jump = PlayerActions.Jump.IsPressed();
 
             callback.SetInput(input, DeterministicInputFlags.Repeatable);
+        }
+        
+        private void ToggleCursor(InputAction.CallbackContext callback)
+        {
+            bool isLocked = Cursor.lockState == CursorLockMode.Locked;
+            Cursor.lockState = isLocked ? CursorLockMode.None : CursorLockMode.Locked;
         }
     }
 }

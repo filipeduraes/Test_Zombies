@@ -12,6 +12,8 @@ EditorBuildSettings:
     path: Assets/Photon/QuantumDemo/Menu/MenuAuto.unity
     guid: 45efb823fdbe27d4490138c728a24ba8
   - enabled: 1
-    path: Assets/Scenes/Sample/ExampleScene.unity
-    guid: ee80832635f7ed4428f46c6595b35314
-  m_configObjects: {}
+    path: Assets/Resources/DB/Scenes/Gameplay.unity
+    guid: be5d8c9365345a548905f83f89b5d67d
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 018b8bbd3905b2b4387fd00464aa3eb9,
+      type: 2}

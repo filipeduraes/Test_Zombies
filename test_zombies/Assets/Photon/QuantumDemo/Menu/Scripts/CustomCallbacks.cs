@@ -1,20 +1,28 @@
-﻿using UnityEngine;
+﻿using Quantum;
+using UnityEngine;
 
-public class CustomCallbacks : QuantumCallbacks {
+namespace Photon.QuantumDemo.Menu.Scripts
+{
+    public class CustomCallbacks : QuantumCallbacks
+    {
+        [SerializeField] private RuntimePlayer playerData;
+    
+        public override void OnGameStart(QuantumGame game) 
+        {
+            if (game.Session.IsPaused) 
+                return;
 
-  public override void OnGameStart(Quantum.QuantumGame game) {
-    // paused on Start means waiting for Snapshot
-    if (game.Session.IsPaused) return;
+            foreach (var lp in game.GetLocalPlayers()) 
+            {
+                Debug.Log($"CustomCallbacks - sending player: {lp}"); 
+                game.SendPlayerData(lp, playerData);
+            }
+        }
 
-    foreach (var lp in game.GetLocalPlayers()) {
-      Debug.Log("CustomCallbacks - sending player: " + lp);
-      game.SendPlayerData(lp, new Quantum.RuntimePlayer { });
+        public override void OnGameResync(QuantumGame game)
+        {
+            Debug.Log($"Detected Resync. Verified tick: {game.Frames.Verified.Number}");
+        }
     }
-  }
-
-  public override void OnGameResync(Quantum.QuantumGame game)
-  {
-    Debug.Log("Detected Resync. Verified tick: " + game.Frames.Verified.Number);
-  }
 }
 
