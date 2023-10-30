@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd8e95ae0daaec4496511105240e8a3, type: 3}
   m_Name: AssetResources
   m_EditorClassIdentifier: 
+  AddressablesGroup:
+    _resources: []
   AssetBundlesGroup:
     _resources: []
   ResourcesGroup:
@@ -31,11 +33,6 @@ MonoBehaviour:
         Id:
           Value: 3
       ResourcePath: DB/Configs/DefaultCharacterController2D
-    - Path: Resources/DB/Configs/DefaultCharacterController3D
-      AssetRef:
-        Id:
-          Value: 4
-      ResourcePath: DB/Configs/DefaultCharacterController3D
     - Path: Resources/DB/Configs/SimulationConfig
       AssetRef:
         Id:
@@ -161,6 +158,11 @@ MonoBehaviour:
         Id:
           Value: 1583348271447699218
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/CharacterController3DConfigAsset
+      AssetRef:
+        Id:
+          Value: 1766174726734065469
+      ResourcePath: DB/Prototypes/CharacterController3DConfigAsset
     - Path: Resources/DB/EntityPrototypes/Lion QPrefab|EntityPrototype
       AssetRef:
         Id:

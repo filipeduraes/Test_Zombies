@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1598482147964627495}
   - component: {fileID: 1598482147964627494}
   - component: {fileID: 1598482147964627493}
-  - component: {fileID: 1598482147964627492}
+  - component: {fileID: 3836551655754905374}
+  - component: {fileID: 6152831323464952108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -228,7 +229,22 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1598482147964627492
+--- !u!114 &3836551655754905374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598482147964627491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140b76a75f572d345b4baf8c8ecf0e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    Player:
+      _index: 1
+--- !u!114 &6152831323464952108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,7 +259,7 @@ MonoBehaviour:
   Prototype:
     Config:
       Id:
-        Value: 4
+        Value: 1766174726734065469
 --- !u!1 &1598482148236538036
 GameObject:
   m_ObjectHideFlags: 0

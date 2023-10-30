@@ -45,7 +45,6 @@ namespace Quantum {
     Attack = 1 << 2,
     Defend = 1 << 3,
     Jump = 1 << 4,
-    JumpButton = 1 << 5,
   }
   public static unsafe partial class InputButtons_ext {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -1802,7 +1801,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 136;
+    public const Int32 SIZE = 128;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(32)]
     public Button Action;
@@ -1810,15 +1809,13 @@ namespace Quantum {
     public Button Attack;
     [FieldOffset(56)]
     public Button Defend;
-    [FieldOffset(104)]
+    [FieldOffset(96)]
     public FPVector2 Direction;
     [FieldOffset(68)]
     public Button Jump;
-    [FieldOffset(80)]
-    public Button JumpButton;
-    [FieldOffset(120)]
+    [FieldOffset(112)]
     public FPVector2 LookDelta;
-    [FieldOffset(92)]
+    [FieldOffset(80)]
     public Button MoveBack;
     [FieldOffset(0)]
     public FP MovementHorizontal;
@@ -1837,7 +1834,6 @@ namespace Quantum {
         hash = hash * 31 + Defend.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
-        hash = hash * 31 + JumpButton.GetHashCode();
         hash = hash * 31 + LookDelta.GetHashCode();
         hash = hash * 31 + MoveBack.GetHashCode();
         hash = hash * 31 + MovementHorizontal.GetHashCode();
@@ -1862,7 +1858,6 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.IsDown;
         case InputButtons.Defend: return Defend.IsDown;
         case InputButtons.Jump: return Jump.IsDown;
-        case InputButtons.JumpButton: return JumpButton.IsDown;
       }
       return false;
     }
@@ -1873,7 +1868,6 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.WasPressed;
         case InputButtons.Defend: return Defend.WasPressed;
         case InputButtons.Jump: return Jump.WasPressed;
-        case InputButtons.JumpButton: return JumpButton.WasPressed;
       }
       return false;
     }
@@ -1887,7 +1881,6 @@ namespace Quantum {
         Button.Serialize(&p->Attack, serializer);
         Button.Serialize(&p->Defend, serializer);
         Button.Serialize(&p->Jump, serializer);
-        Button.Serialize(&p->JumpButton, serializer);
         Button.Serialize(&p->MoveBack, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
         FPVector2.Serialize(&p->LookDelta, serializer);
@@ -1939,7 +1932,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1352;
+    public const Int32 SIZE = 1304;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(48)]
     public BotSDKData BotSDKData;
@@ -1951,7 +1944,7 @@ namespace Quantum {
     public AssetRefMap Map;
     [FieldOffset(24)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(1056)]
+    [FieldOffset(1008)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet6 PlayerLastConnectionState;
@@ -1961,10 +1954,10 @@ namespace Quantum {
     public BitSet1024 Systems;
     [FieldOffset(240)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[816];
+    private fixed Byte _input_[768];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 136, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 128, 6); }
       }
     }
     public override Int32 GetHashCode() {
@@ -2731,6 +2724,24 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct PlayerLink : Quantum.IComponent {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 4;
+    [FieldOffset(0)]
+    public PlayerRef Player;
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 349;
+        hash = hash * 31 + Player.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (PlayerLink*)ptr;
+        PlayerRef.Serialize(&p->Player, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Projectile : Quantum.IComponent {
     public const Int32 SIZE = 24;
     public const Int32 ALIGNMENT = 8;
@@ -2744,7 +2755,7 @@ namespace Quantum {
     public AssetRefWeaponSpec WeaponSpec;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 349;
+        var hash = 353;
         hash = hash * 31 + DamageZoneQueryIndex.GetHashCode();
         hash = hash * 31 + PathQueryIndex.GetHashCode();
         hash = hash * 31 + Speed.GetHashCode();
@@ -2774,7 +2785,7 @@ namespace Quantum {
     public FP TimeLapsed;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 353;
+        var hash = 359;
         hash = hash * 31 + AttackAnimation.GetHashCode();
         hash = hash * 31 + IsAnimating.GetHashCode();
         hash = hash * 31 + TimeLapsed.GetHashCode();
@@ -2799,7 +2810,7 @@ namespace Quantum {
     public QBoolean IsBlocking;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 359;
+        var hash = 367;
         hash = hash * 31 + BlockPercentage.GetHashCode();
         hash = hash * 31 + IsBlocking.GetHashCode();
         return hash;
@@ -2819,7 +2830,7 @@ namespace Quantum {
     private fixed Byte _alignment_padding_[4];
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 367;
+        var hash = 373;
         return hash;
       }
     }
@@ -2849,7 +2860,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 373;
+        var hash = 379;
         hash = hash * 31 + AlreadyHitPtr.GetHashCode();
         hash = hash * 31 + IsEquipped.GetHashCode();
         hash = hash * 31 + WeaponSpec.GetHashCode();
@@ -2895,6 +2906,7 @@ namespace Quantum {
         ComponentTypeId.Add<Quantum.Mana>(Quantum.Mana.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PickUpSlot>(Quantum.PickUpSlot.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PlayerID>(Quantum.PlayerID.Serialize, null, null, ComponentFlags.None);
+        ComponentTypeId.Add<Quantum.PlayerLink>(Quantum.PlayerLink.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Projectile>(Quantum.Projectile.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.QAnimationState>(Quantum.QAnimationState.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Shield>(Quantum.Shield.Serialize, null, null, ComponentFlags.None);
@@ -2954,6 +2966,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.PickUpSlot>();
       BuildSignalsArrayOnComponentAdded<Quantum.PlayerID>();
       BuildSignalsArrayOnComponentRemoved<Quantum.PlayerID>();
+      BuildSignalsArrayOnComponentAdded<Quantum.PlayerLink>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.PlayerLink>();
       BuildSignalsArrayOnComponentAdded<Quantum.Projectile>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Projectile>();
       BuildSignalsArrayOnComponentAdded<Quantum.QAnimationState>();
@@ -2985,7 +2999,6 @@ namespace Quantum {
       i->Attack = i->Attack.Update(this.Number, input.Attack);
       i->Defend = i->Defend.Update(this.Number, input.Defend);
       i->Jump = i->Jump.Update(this.Number, input.Jump);
-      i->JumpButton = i->JumpButton.Update(this.Number, input.JumpButton);
       i->Direction = input.Direction;
       i->LookDelta = input.LookDelta;
     }
@@ -3619,6 +3632,9 @@ namespace Quantum {
     public virtual void Visit(Prototypes.PlayerID_Prototype prototype) {
       VisitFallback(prototype);
     }
+    public virtual void Visit(Prototypes.PlayerLink_Prototype prototype) {
+      VisitFallback(prototype);
+    }
     public virtual void Visit(Prototypes.Projectile_Prototype prototype) {
       VisitFallback(prototype);
     }
@@ -3781,6 +3797,7 @@ namespace Quantum {
       Register(typeof(PhysicsSceneSettings), PhysicsSceneSettings.SIZE);
       Register(typeof(Quantum.PickUpSlot), Quantum.PickUpSlot.SIZE);
       Register(typeof(Quantum.PlayerID), Quantum.PlayerID.SIZE);
+      Register(typeof(Quantum.PlayerLink), Quantum.PlayerLink.SIZE);
       Register(typeof(PlayerRef), PlayerRef.SIZE);
       Register(typeof(Quantum.Projectile), Quantum.Projectile.SIZE);
       Register(typeof(Ptr), Ptr.SIZE);
@@ -4403,7 +4420,6 @@ namespace Quantum.Prototypes {
     public Button Attack;
     public Button Defend;
     public Button Jump;
-    public Button JumpButton;
     public FPVector2 Direction;
     public FPVector2 LookDelta;
     partial void MaterializeUser(Frame frame, ref Input result, in PrototypeMaterializationContext context);
@@ -4413,7 +4429,6 @@ namespace Quantum.Prototypes {
       result.Defend = this.Defend;
       result.Direction = this.Direction;
       result.Jump = this.Jump;
-      result.JumpButton = this.JumpButton;
       result.LookDelta = this.LookDelta;
       result.MoveBack = this.MoveBack;
       result.MovementHorizontal = this.MovementHorizontal;
@@ -4490,6 +4505,24 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref PlayerID result, in PrototypeMaterializationContext context) {
       result.PlayerRef = this.PlayerRef;
+      MaterializeUser(frame, ref result, in context);
+    }
+    public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
+      ((ComponentPrototypeVisitor)visitor).Visit(this);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Prototype(typeof(PlayerLink))]
+  public sealed unsafe partial class PlayerLink_Prototype : ComponentPrototype<PlayerLink> {
+    public PlayerRef Player;
+    partial void MaterializeUser(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+      PlayerLink component = default;
+      Materialize((Frame)f, ref component, in context);
+      return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context) {
+      result.Player = this.Player;
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
@@ -4669,6 +4702,8 @@ namespace Quantum.Prototypes {
     [ArrayLength(0, 1)]
     public List<Prototypes.PlayerID_Prototype> PlayerID;
     [ArrayLength(0, 1)]
+    public List<Prototypes.PlayerLink_Prototype> PlayerLink;
+    [ArrayLength(0, 1)]
     public List<Prototypes.Projectile_Prototype> Projectile;
     [ArrayLength(0, 1)]
     public List<Prototypes.QAnimationState_Prototype> QAnimationState;
@@ -4692,6 +4727,7 @@ namespace Quantum.Prototypes {
       Collect(Mana, target);
       Collect(PickUpSlot, target);
       Collect(PlayerID, target);
+      Collect(PlayerLink, target);
       Collect(Projectile, target);
       Collect(QAnimationState, target);
       Collect(Shield, target);
@@ -4737,6 +4773,9 @@ namespace Quantum.Prototypes {
       }
       public override void Visit(Prototypes.PlayerID_Prototype prototype) {
         Storage.Store(prototype, ref Storage.PlayerID);
+      }
+      public override void Visit(Prototypes.PlayerLink_Prototype prototype) {
+        Storage.Store(prototype, ref Storage.PlayerLink);
       }
       public override void Visit(Prototypes.Projectile_Prototype prototype) {
         Storage.Store(prototype, ref Storage.Projectile);

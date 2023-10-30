@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Photon.Deterministic;
 using Quantum.ZombieTest;
+using Quantum.ZombieTest.Systems;
 using Zombie.Utils.TestUtils;
 using Assert = NUnit.Framework.Assert;
 
