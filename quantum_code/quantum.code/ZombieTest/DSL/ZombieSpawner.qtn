@@ -1,0 +1,10 @@
+﻿component ZombieSpawner
+{
+    int spawnCount;
+    FP spawnRate;
+    FP spawnInitialDelay;
+    AssetRefEntityPrototype prefab;
+    list<FPVector3> spawnPoints;
+    
+    [HideInInspector] list<EntityRef> instances;
+}

@@ -195,6 +195,8 @@
     <Compile Include="ZombieTest\AI\Decorators\IsInsideVision.cs" />
     <Compile Include="ZombieTest\CharacterMovement.cs" />
     <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\QListExtensions.cs" />
+    <Compile Include="ZombieTest\Systems\ZombieSpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BotSDK\AI\BT\bt.qtn" />
@@ -226,6 +228,7 @@
     <Content Include="CustomState\DSL\Weapon.qtn" />
     <Content Include="ZombieTest\DSL\Input.qtn" />
     <Content Include="ZombieTest\DSL\PlayerLink.qtn" />
+    <Content Include="ZombieTest\DSL\ZombieSpawner.qtn" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CustomState\DSL\Knockable.qtn" />

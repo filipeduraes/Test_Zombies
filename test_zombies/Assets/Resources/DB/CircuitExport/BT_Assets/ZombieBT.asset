@@ -10,22 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09568acd7b0537545bfc31fc5d81b3c5, type: 3}
-  m_Name: FindClosestCharacter_1
+  m_Name: FindClosestCharacter_0
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_1
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_0
       Guid:
         Value: 2455473932978594343
     Label: FindClosestCharacter
-    Id: 3
+    Id: 2
     Services: []
-    result:
-      Source: 3
-      Key: ClosestCharacter
-      FunctionRef:
-        Id:
-          Value: 0
+    resultKey: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,14 +86,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6d41307c39f074c9ecc777757b546a, type: 3}
-  m_Name: DebugLeaf_0
+  m_Name: DebugLeaf_1
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|DebugLeaf_0
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|DebugLeaf_1
       Guid:
         Value: 3441775180214140898
     Label: DebugLeaf
-    Id: 2
+    Id: 3
     Services: []
     Message: 

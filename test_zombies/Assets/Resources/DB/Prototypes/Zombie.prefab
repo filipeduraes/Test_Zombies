@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 6212489489583160079}
   - component: {fileID: 690962870112571032}
   - component: {fileID: 8907666183502447019}
-  - component: {fileID: 1410666084060827842}
   - component: {fileID: 7659482022676063219}
   m_Layer: 13
   m_Name: Zombie
@@ -235,7 +234,7 @@ MonoBehaviour:
         Value: 4402728546861690606
     Current:
       Id:
-        Value: 3217770142462909898
+        Value: 4402728546861690606
     NodesStatus: 
     ServicesEndTimes: []
     BTDataValues: []
@@ -275,18 +274,6 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1410666084060827842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6028862022579483366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ed481819a7e7547a6ae575c1d05189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7659482022676063219
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ namespace Quantum.ZombieTest.AI.Decorators
     [Serializable]
     public class IsInsideVision : BTDecorator
     {
-        public EntityRef owner;
         public FP minDistance;
         
         private ComponentFilter<CharacterController3D, Transform3D> players;
@@ -16,7 +15,7 @@ namespace Quantum.ZombieTest.AI.Decorators
         {
             base.OnEnter(btParams, ref aiContext);
             players = btParams.Frame.Filter<CharacterController3D, Transform3D>();
-            ownerTransform = btParams.Frame.Get<Transform3D>(owner);
+            ownerTransform = btParams.Frame.Get<Transform3D>(btParams.Entity);
         }
 
         public override bool DryRun(BTParams btParams, ref AIContext aiContext)

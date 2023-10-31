@@ -46,6 +46,47 @@ MonoBehaviour:
         X:
           RawValue: 0
         Y:
+          RawValue: -62476
+        Z:
+          RawValue: 0
+        W:
+          RawValue: -19790
+      Position:
+        X:
+          RawValue: -616564
+        Y:
+          RawValue: 105959
+        Z:
+          RawValue: 853073
+      PhysicsMaterial:
+        Id:
+          Value: 0
+      ShapeType: 1
+      SphereRadius:
+        RawValue: 355205
+      BoxExtents:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      SmoothSphereMeshCollisions: 0
+      StaticData:
+        Name: SphereStaticCollider
+        Tag: Untagged
+        Layer: 0
+        Asset:
+          Id:
+            Value: 0
+        IsTrigger: 0
+        ColliderIndex: 0
+        MutableMode: 0
+      MutableMode: 0
+    - Rotation:
+        X:
+          RawValue: 0
+        Y:
           RawValue: 3091
         Z:
           RawValue: 0
@@ -80,7 +121,7 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 0
+        ColliderIndex: 1
         MutableMode: 0
       MutableMode: 0
     - Rotation:
@@ -96,7 +137,7 @@ MonoBehaviour:
         X:
           RawValue: 858734
         Y:
-          RawValue: 208195
+          RawValue: 237031
         Z:
           RawValue: -470901
       PhysicsMaterial:
@@ -109,7 +150,7 @@ MonoBehaviour:
         X:
           RawValue: 227409
         Y:
-          RawValue: 163840
+          RawValue: 294912
         Z:
           RawValue: 226099
       SmoothSphereMeshCollisions: 0
@@ -121,7 +162,7 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 1
+        ColliderIndex: 2
         MutableMode: 0
       MutableMode: 0
     - Rotation:
@@ -150,7 +191,7 @@ MonoBehaviour:
         X:
           RawValue: 491520
         Y:
-          RawValue: 163840
+          RawValue: 294912
         Z:
           RawValue: 253296
       SmoothSphereMeshCollisions: 0
@@ -162,7 +203,7 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 2
+        ColliderIndex: 3
         MutableMode: 0
       MutableMode: 0
     - Rotation:
@@ -191,7 +232,7 @@ MonoBehaviour:
         X:
           RawValue: 540999
         Y:
-          RawValue: 163840
+          RawValue: 262144
         Z:
           RawValue: 253296
       SmoothSphereMeshCollisions: 0
@@ -203,25 +244,25 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 3
+        ColliderIndex: 4
         MutableMode: 0
       MutableMode: 0
     - Rotation:
         X:
           RawValue: 0
         Y:
-          RawValue: 62458
+          RawValue: 60355
         Z:
           RawValue: 0
         W:
-          RawValue: 19847
+          RawValue: 25538
       Position:
         X:
-          RawValue: -558630
+          RawValue: -600836
         Y:
           RawValue: 224579
         Z:
-          RawValue: 867808
+          RawValue: 939580
       PhysicsMaterial:
         Id:
           Value: 0
@@ -244,25 +285,25 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 4
+        ColliderIndex: 5
         MutableMode: 0
       MutableMode: 0
     - Rotation:
         X:
           RawValue: 0
         Y:
-          RawValue: 62458
+          RawValue: 61291
         Z:
           RawValue: 0
         W:
-          RawValue: 19847
+          RawValue: 23201
       Position:
         X:
-          RawValue: -443942
+          RawValue: -172885
         Y:
-          RawValue: 159043
+          RawValue: 222613
         Z:
-          RawValue: 589280
+          RawValue: 1410784
       PhysicsMaterial:
         Id:
           Value: 0
@@ -271,11 +312,11 @@ MonoBehaviour:
         RawValue: 0
       BoxExtents:
         X:
-          RawValue: 146800
+          RawValue: 226754
         Y:
-          RawValue: 131072
+          RawValue: 308019
         Z:
-          RawValue: 65536
+          RawValue: 253296
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: BoxStaticCollider (5)
@@ -285,7 +326,48 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 5
+        ColliderIndex: 6
+        MutableMode: 0
+      MutableMode: 0
+    - Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 65390
+        Z:
+          RawValue: 0
+        W:
+          RawValue: 4371
+      Position:
+        X:
+          RawValue: 192149
+        Y:
+          RawValue: 222613
+        Z:
+          RawValue: 1562827
+      PhysicsMaterial:
+        Id:
+          Value: 0
+      ShapeType: 2
+      SphereRadius:
+        RawValue: 0
+      BoxExtents:
+        X:
+          RawValue: 226754
+        Y:
+          RawValue: 308019
+        Z:
+          RawValue: 253296
+      SmoothSphereMeshCollisions: 0
+      StaticData:
+        Name: BoxStaticCollider (6)
+        Tag: Untagged
+        Layer: 9
+        Asset:
+          Id:
+            Value: 0
+        IsTrigger: 0
+        ColliderIndex: 7
         MutableMode: 0
       MutableMode: 0
     - Rotation:
@@ -326,7 +408,7 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 6
+        ColliderIndex: 8
         MutableMode: 0
       MutableMode: 0
     - Rotation:
@@ -367,11 +449,145 @@ MonoBehaviour:
           Id:
             Value: 0
         IsTrigger: 0
-        ColliderIndex: 7
+        ColliderIndex: 9
         MutableMode: 0
       MutableMode: 0
     MapEntities: []
   Prototypes:
+  - AIBlackboardComponent: []
+    BTAgent: []
+    CharacterInventory: []
+    CompoundBTAgent: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    PlayerLink: []
+    Projectile: []
+    QAnimationState: []
+    Shield: []
+    UTAgent: []
+    Weapon: []
+    ZombieSpawner:
+    - spawnCount: 5
+      spawnRate:
+        RawValue: 262144
+      spawnInitialDelay:
+        RawValue: 196608
+      prefab:
+        Id:
+          Value: 2008970885342591419
+      spawnPoints:
+      - X:
+          RawValue: 65536
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 0
+      - X:
+          RawValue: 131072
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 0
+      - X:
+          RawValue: 196608
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 0
+      - X:
+          RawValue: 65536
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 65536
+      - X:
+          RawValue: 131072
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 65536
+      - X:
+          RawValue: 196608
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 65536
+      - X:
+          RawValue: 65536
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 131072
+      - X:
+          RawValue: 131072
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 131072
+      - X:
+          RawValue: 196608
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 131072
+      - X:
+          RawValue: 65536
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 196608
+      - X:
+          RawValue: 131072
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 196608
+      - X:
+          RawValue: 196608
+        Y:
+          RawValue: 65536
+        Z:
+          RawValue: 196608
+      instances: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D: []
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D: []
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
   - AIBlackboardComponent:
     - Board:
         Id:
@@ -383,7 +599,7 @@ MonoBehaviour:
           Value: 4402728546861690606
       Current:
         Id:
-          Value: 3217770142462909898
+          Value: 4402728546861690606
       NodesStatus: 
       ServicesEndTimes: []
       BTDataValues: []
@@ -410,6 +626,7 @@ MonoBehaviour:
     Shield: []
     UTAgent: []
     Weapon: []
+    ZombieSpawner: []
     CharacterController2D: []
     CharacterController3D: []
     NavMeshAvoidanceAgent: []
@@ -417,7 +634,7 @@ MonoBehaviour:
     NavMeshPathfinder:
     - AgentConfig:
         Id:
-          Value: 438239720525103854
+          Value: 0
       InitialTarget:
         _hasValue: 0
         _value:

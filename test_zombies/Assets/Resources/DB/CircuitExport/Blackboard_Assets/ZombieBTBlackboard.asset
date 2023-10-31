@@ -18,9 +18,6 @@ MonoBehaviour:
       Guid:
         Value: 2752945826699186964
     Entries:
-    - Type: 6
-      Key:
-        Key: Owner
     - Type: 3
       Key:
         Key: ViewDistance

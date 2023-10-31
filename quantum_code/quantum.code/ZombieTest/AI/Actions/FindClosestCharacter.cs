@@ -6,13 +6,12 @@ namespace Quantum.ZombieTest.AI.Actions
     [Serializable]
     public class FindClosestCharacter : BTLeaf
     {
-        public EntityRef owner;
-        public AIParamEntityRef result;
+        public string resultKey;
         
         protected override unsafe BTStatus OnUpdate(BTParams btParams, ref AIContext aiContext)
         {
             ComponentFilter<CharacterController3D,Transform3D> filter = btParams.Frame.Filter<CharacterController3D, Transform3D>();
-            Transform3D ownerTransform = btParams.Frame.Get<Transform3D>(owner);
+            Transform3D ownerTransform = btParams.Frame.Get<Transform3D>(btParams.Entity);
 
             FP closestDistance = FP.MaxValue;
             EntityRef? closestEntity = null;
@@ -30,7 +29,7 @@ namespace Quantum.ZombieTest.AI.Actions
 
             if (closestEntity.HasValue)
             {
-                btParams.Blackboard->Set(btParams.Frame, result.Key, closestEntity.Value);
+                btParams.Blackboard->Set(btParams.Frame, resultKey, closestEntity.Value);
                 return BTStatus.Success;
             }
 
