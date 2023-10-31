@@ -1,11 +1,16 @@
 using System;
 using Quantum;
 using UnityEngine;
+using Zombie.Player.Animations;
 
 namespace Zombie.Player
 {
     public class PlayerSetup : MonoBehaviour
     {
+        [Header("Systems")]
+        [SerializeField] private PlayerAnimations animations;
+        
+        [Header("Simulation")]
         [SerializeField] private EntityView entityPrototype;
         [SerializeField] private Transform lookDirection;
 
@@ -26,6 +31,8 @@ namespace Zombie.Player
             if (localPlayerReference != null)
             {
                 PlayerReference = localPlayerReference;
+                animations.Initialize(QuantumRunner.Default.Game.Frames.Verified, entityPrototype.EntityRef);
+                    
                 OnPlayerInitialized(this);
             }
         }

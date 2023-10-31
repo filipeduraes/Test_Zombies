@@ -33,12 +33,14 @@ MonoBehaviour:
       Id:
         Value: 1459794417083453152
     OptionalTriangleMetadataSerializationEnabled: 1
-    SerializeTrianglesMetadata: 0
+    SerializeTrianglesMetadata: 1
     StaticColliders3DTrianglesBinaryFile: 
-    GridSizeX: 2
-    GridSizeY: 2
+    GridSizeX: 28
+    GridSizeY: 34
     GridNodeSize: 2
-    NavMeshLinks: []
+    NavMeshLinks:
+    - Id:
+        Value: 919980335714377135
     Regions: []
     StaticColliders2D: []
     StaticColliders3D:
@@ -401,9 +403,9 @@ MonoBehaviour:
           RawValue: 0
       SmoothSphereMeshCollisions: 0
       StaticData:
-        Name: Ground
+        Name: Ground_01
         Tag: Untagged
-        Layer: 9
+        Layer: 0
         Asset:
           Id:
             Value: 0
@@ -482,77 +484,83 @@ MonoBehaviour:
       prefab:
         Id:
           Value: 2008970885342591419
+      navmeshAgentConfig:
+        Id:
+          Value: 438239720525103854
+      navmeshAsset:
+        Id:
+          Value: 919980335714377135
       spawnPoints:
       - X:
           RawValue: 65536
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 0
       - X:
           RawValue: 131072
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 0
       - X:
           RawValue: 196608
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 0
       - X:
           RawValue: 65536
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 65536
       - X:
           RawValue: 131072
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 65536
       - X:
           RawValue: 196608
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 65536
       - X:
           RawValue: 65536
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 131072
       - X:
           RawValue: 131072
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 131072
       - X:
           RawValue: 196608
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 131072
       - X:
           RawValue: 65536
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 196608
       - X:
           RawValue: 131072
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 196608
       - X:
           RawValue: 196608
         Y:
-          RawValue: 65536
+          RawValue: 0
         Z:
           RawValue: 196608
       instances: []

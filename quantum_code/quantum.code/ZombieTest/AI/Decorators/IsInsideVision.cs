@@ -1,7 +1,7 @@
 ﻿using System;
 using Photon.Deterministic;
 
-namespace Quantum.ZombieTest.AI.Decorators
+namespace Quantum
 {
     [Serializable]
     public class IsInsideVision : BTDecorator

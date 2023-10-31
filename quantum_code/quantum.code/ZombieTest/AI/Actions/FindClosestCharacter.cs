@@ -1,12 +1,12 @@
 ﻿using System;
 using Photon.Deterministic;
 
-namespace Quantum.ZombieTest.AI.Actions
+namespace Quantum
 {
     [Serializable]
     public class FindClosestCharacter : BTLeaf
     {
-        public string resultKey;
+        public AIBlackboardValueKey resultKey;
         
         protected override unsafe BTStatus OnUpdate(BTParams btParams, ref AIContext aiContext)
         {
@@ -29,7 +29,7 @@ namespace Quantum.ZombieTest.AI.Actions
 
             if (closestEntity.HasValue)
             {
-                btParams.Blackboard->Set(btParams.Frame, resultKey, closestEntity.Value);
+                btParams.Blackboard->Set(btParams.Frame, resultKey.Key, closestEntity.Value);
                 return BTStatus.Success;
             }
 

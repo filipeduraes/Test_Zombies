@@ -22,6 +22,28 @@ MonoBehaviour:
       Id:
         Value: 2752945826699186964
     InitialValues:
+    - Key: NavMeshAsset
+      Value:
+        AsBoolean: 0
+        AsByte: 0
+        AsInteger: 0
+        AsFP:
+          RawValue: 0
+        AsFPVector2:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+        AsFPVector3:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        AsAssetRef:
+          Id:
+            Value: 919980335714377135
     - Key: ViewDistance
       Value:
         AsBoolean: 0
@@ -29,6 +51,28 @@ MonoBehaviour:
         AsInteger: 0
         AsFP:
           RawValue: 524288
+        AsFPVector2:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+        AsFPVector3:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        AsAssetRef:
+          Id:
+            Value: 0
+    - Key: TargetMinDistance
+      Value:
+        AsBoolean: 0
+        AsByte: 0
+        AsInteger: 0
+        AsFP:
+          RawValue: 65536
         AsFPVector2:
           X:
             RawValue: 0

@@ -67,6 +67,7 @@ namespace Quantum.ZombieTest.Systems
             {
                 InitializeBehaviorTree(frame, agent, newAgent);
                 InitializeBlackboard(frame, newAgent);
+                InitializeNavmesh(frame, spawner->navmeshAgentConfig, spawner->navmeshAsset, newAgent);
                 SetRandomPosition(frame, spawner, newAgent);
                 
                 instances.Add(newAgent);
@@ -76,7 +77,7 @@ namespace Quantum.ZombieTest.Systems
                 #endif
             }
         }
-        
+
         private static void InitializeBehaviorTree(Frame frame, BTAgent* agent, EntityRef newAgent)
         {
             BTRoot btRoot = frame.FindAsset<BTRoot>(agent->Tree.Id);
@@ -89,6 +90,18 @@ namespace Quantum.ZombieTest.Systems
             AIBlackboardInitializer initializer = frame.FindAsset<AIBlackboardInitializer>(frame.RuntimeConfig.BlackboardInitializer.Id);
             AIBlackboardInitializer.InitializeBlackboard(frame, &bbComponent, initializer);
             frame.Set(newAgent, bbComponent);
+        }
+        
+        private void InitializeNavmesh(Frame frame, AssetRef agentConfigAsset, AssetRef navMeshAsset, EntityRef newAgent)
+        {
+            NavMeshAgentConfig navMeshAgentConfig = frame.FindAsset<NavMeshAgentConfig>(agentConfigAsset);
+            NavMesh navMesh = frame.FindAsset<NavMesh>(navMeshAsset);
+            NavMeshPathfinder pathfinder = NavMeshPathfinder.Create(frame, newAgent, navMeshAgentConfig);
+            NavMeshSteeringAgent steeringAgent = new();
+
+            pathfinder.SetTarget(frame, FPVector3.Zero, navMesh);
+            frame.Set(newAgent, pathfinder);
+            frame.Set(newAgent, steeringAgent);
         }
 
         private static void SetRandomPosition(Frame frame, ZombieSpawner* spawner, EntityRef newAgent)

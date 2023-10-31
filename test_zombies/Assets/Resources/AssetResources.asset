@@ -73,6 +73,11 @@ MonoBehaviour:
         Id:
           Value: 453968868590482770
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Scenes/Gameplay_UnityNavMesh_data
+      AssetRef:
+        Id:
+          Value: 483960208677307657
+      ResourcePath: DB/Scenes/Gameplay_UnityNavMesh_data
     - Path: Resources/DB/QAssets/DefaultPotionHealth
       AssetRef:
         Id:
@@ -113,6 +118,11 @@ MonoBehaviour:
         Id:
           Value: 890473571884936016
       ResourcePath: DB/QAssets/DefaultAttackClip
+    - Path: Resources/DB/Scenes/Gameplay_UnityNavMesh
+      AssetRef:
+        Id:
+          Value: 919980335714377135
+      ResourcePath: DB/Scenes/Gameplay_UnityNavMesh
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
       AssetRef:
         Id:
@@ -123,6 +133,11 @@ MonoBehaviour:
         Id:
           Value: 1149378074360189638
       ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+      AssetRef:
+        Id:
+          Value: 1195006700022705383
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/NestedAssetType|EntityPrototype
       AssetRef:
         Id:
@@ -338,11 +353,6 @@ MonoBehaviour:
         Id:
           Value: 3310866207977209541
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|DebugLeaf_1
-      AssetRef:
-        Id:
-          Value: 3441775180214140898
-      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/ExampleScene_Map_NavMesh
       AssetRef:
         Id:

@@ -18,9 +18,15 @@ MonoBehaviour:
       Guid:
         Value: 2752945826699186964
     Entries:
-    - Type: 3
-      Key:
-        Key: ViewDistance
     - Type: 6
       Key:
         Key: ClosestCharacter
+    - Type: 7
+      Key:
+        Key: NavMeshAsset
+    - Type: 3
+      Key:
+        Key: ViewDistance
+    - Type: 3
+      Key:
+        Key: TargetMinDistance

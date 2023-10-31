@@ -201,6 +201,8 @@ namespace Quantum.Prototypes.Unity {
     public Photon.Deterministic.FP spawnRate;
     public Photon.Deterministic.FP spawnInitialDelay;
     public Quantum.AssetRefEntityPrototype prefab;
+    public Quantum.AssetRef navmeshAgentConfig;
+    public Quantum.AssetRef navmeshAsset;
     [Quantum.Inspector.DynamicCollectionAttribute()]
     public Photon.Deterministic.FPVector3[] spawnPoints = System.Array.Empty<Photon.Deterministic.FPVector3>();
     [Quantum.Inspector.HideInInspectorAttribute()]
@@ -214,6 +216,8 @@ namespace Quantum.Prototypes.Unity {
       result.spawnRate = this.spawnRate;
       result.spawnInitialDelay = this.spawnInitialDelay;
       result.prefab = this.prefab;
+      result.navmeshAgentConfig = this.navmeshAgentConfig;
+      result.navmeshAsset = this.navmeshAsset;
       result.spawnPoints = this.spawnPoints;
       result.instances = System.Array.ConvertAll(this.instances, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
       return result;

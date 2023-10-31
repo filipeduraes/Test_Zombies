@@ -8,18 +8,17 @@
 // </auto-generated>
 
 using Quantum;
-using Quantum.ZombieTest.AI.Actions;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Quantum/BTNode/BTLeaf/FindClosestCharacter", order = Quantum.EditorDefines.AssetMenuPriorityStart + 31)]
 public partial class FindClosestCharacterAsset : BTLeafAsset {
-  public Quantum.ZombieTest.AI.Actions.FindClosestCharacter Settings;
+  public Quantum.FindClosestCharacter Settings;
 
   public override Quantum.AssetObject AssetObject => Settings;
   
   public override void Reset() {
     if (Settings == null) {
-      Settings = new Quantum.ZombieTest.AI.Actions.FindClosestCharacter();
+      Settings = new Quantum.FindClosestCharacter();
     }
     base.Reset();
   }

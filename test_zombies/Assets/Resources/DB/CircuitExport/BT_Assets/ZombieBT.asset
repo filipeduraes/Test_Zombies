@@ -20,7 +20,8 @@ MonoBehaviour:
     Label: FindClosestCharacter
     Id: 2
     Services: []
-    resultKey: ClosestCharacter
+    resultKey:
+      Key: ClosestCharacter
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +46,32 @@ MonoBehaviour:
         Value: 3217770142462909898
     AbortType: 0
     NodesAmount: 4
+--- !u!114 &1374143550026552648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb05bc3f887b78449839e6e54e7ee21, type: 3}
+  m_Name: MoveToTarget_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+      Guid:
+        Value: 1195006700022705383
+    Label: MoveToTarget
+    Id: 3
+    Services: []
+    minDistance:
+      RawValue: 65536
+    navMeshAssetKey:
+      Key: NavMeshAsset
+    targetKey:
+      Key: ClosestCharacter
 --- !u!114 &1450213541846918365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +95,7 @@ MonoBehaviour:
     - Id:
         Value: 2455473932978594343
     - Id:
-        Value: 3441775180214140898
+        Value: 1195006700022705383
     Services: []
     TopmostDecorator:
       Id:
@@ -76,24 +103,3 @@ MonoBehaviour:
     CurrentChildIndex:
       Index: 0
     IsDynamic: 0
---- !u!114 &1883447952656357363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d6d41307c39f074c9ecc777757b546a, type: 3}
-  m_Name: DebugLeaf_1
-  m_EditorClassIdentifier: 
-  Settings:
-    Identifier:
-      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|DebugLeaf_1
-      Guid:
-        Value: 3441775180214140898
-    Label: DebugLeaf
-    Id: 3
-    Services: []
-    Message: 

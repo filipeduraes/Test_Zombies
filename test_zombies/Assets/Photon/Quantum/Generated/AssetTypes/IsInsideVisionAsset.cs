@@ -8,18 +8,17 @@
 // </auto-generated>
 
 using Quantum;
-using Quantum.ZombieTest.AI.Decorators;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Quantum/BTNode/BTDecorator/IsInsideVision", order = Quantum.EditorDefines.AssetMenuPriorityStart + 34)]
 public partial class IsInsideVisionAsset : BTDecoratorAsset {
-  public Quantum.ZombieTest.AI.Decorators.IsInsideVision Settings;
+  public Quantum.IsInsideVision Settings;
 
   public override Quantum.AssetObject AssetObject => Settings;
   
   public override void Reset() {
     if (Settings == null) {
-      Settings = new Quantum.ZombieTest.AI.Decorators.IsInsideVision();
+      Settings = new Quantum.IsInsideVision();
     }
     base.Reset();
   }

@@ -2883,22 +2883,26 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct ZombieSpawner : Quantum.IComponent {
-    public const Int32 SIZE = 40;
+    public const Int32 SIZE = 56;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(4)]
     [HideInInspector()]
     [FramePrinter.PtrQListAttribute(typeof(EntityRef))]
     private Quantum.Ptr instancesPtr;
     [FieldOffset(16)]
+    public AssetRef navmeshAgentConfig;
+    [FieldOffset(24)]
+    public AssetRef navmeshAsset;
+    [FieldOffset(32)]
     public AssetRefEntityPrototype prefab;
     [FieldOffset(0)]
     public Int32 spawnCount;
-    [FieldOffset(24)]
+    [FieldOffset(40)]
     public FP spawnInitialDelay;
     [FieldOffset(8)]
     [FramePrinter.PtrQListAttribute(typeof(FPVector3))]
     private Quantum.Ptr spawnPointsPtr;
-    [FieldOffset(32)]
+    [FieldOffset(48)]
     public FP spawnRate;
     public QListPtr<EntityRef> instances {
       get {
@@ -2920,6 +2924,8 @@ namespace Quantum {
       unchecked { 
         var hash = 383;
         hash = hash * 31 + instancesPtr.GetHashCode();
+        hash = hash * 31 + navmeshAgentConfig.GetHashCode();
+        hash = hash * 31 + navmeshAsset.GetHashCode();
         hash = hash * 31 + prefab.GetHashCode();
         hash = hash * 31 + spawnCount.GetHashCode();
         hash = hash * 31 + spawnInitialDelay.GetHashCode();
@@ -2941,6 +2947,8 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->spawnCount);
         QList.Serialize(p->instances, &p->instancesPtr, serializer, StaticDelegates.SerializeEntityRef);
         QList.Serialize(p->spawnPoints, &p->spawnPointsPtr, serializer, StaticDelegates.SerializeFPVector3);
+        AssetRef.Serialize(&p->navmeshAgentConfig, serializer);
+        AssetRef.Serialize(&p->navmeshAsset, serializer);
         AssetRefEntityPrototype.Serialize(&p->prefab, serializer);
         FP.Serialize(&p->spawnInitialDelay, serializer);
         FP.Serialize(&p->spawnRate, serializer);
@@ -4755,6 +4763,8 @@ namespace Quantum.Prototypes {
     public FP spawnRate;
     public FP spawnInitialDelay;
     public AssetRefEntityPrototype prefab;
+    public AssetRef navmeshAgentConfig;
+    public AssetRef navmeshAsset;
     [DynamicCollectionAttribute()]
     public FPVector3[] spawnPoints = {};
     [HideInInspector()]
@@ -4778,6 +4788,8 @@ namespace Quantum.Prototypes {
         }
         result.instances = list;
       }
+      result.navmeshAgentConfig = this.navmeshAgentConfig;
+      result.navmeshAsset = this.navmeshAsset;
       result.prefab = this.prefab;
       result.spawnCount = this.spawnCount;
       result.spawnInitialDelay = this.spawnInitialDelay;
