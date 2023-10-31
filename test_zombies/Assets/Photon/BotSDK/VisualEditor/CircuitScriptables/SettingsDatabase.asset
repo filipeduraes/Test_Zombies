@@ -16,7 +16,7 @@ MonoBehaviour:
   EditorFPS: 60
   ForceDark: 0
   PlaySystemErrorSound: 1
-  DebugEnabled: 0
+  DebugEnabled: 1
   CacheEnabled: 1
   DevelopmentMode: 0
   VariableSingleClickEdit: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     SlotGameObjectColor: {r: 0, g: 0.7294118, b: 1, a: 1}
     SlotTransformColor: {r: 0, g: 0.91764706, b: 1, a: 1}
     NodeCommentTint: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-    NodeNameColor: {r: 1, g: 1, b: 1, a: 1}
+    NodeNameColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     SlotHoverLabelTint: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     SlotNameColor: {r: 1, g: 1, b: 1, a: 1}
     SlotNameErrorColor: {r: 1, g: 0.49803922, b: 0.15294118, a: 1}
@@ -95,7 +95,7 @@ MonoBehaviour:
     ActiveSecondaryColor: {r: 0.22352941, g: 0.3372549, b: 0.49019608, a: 1}
     BTLinkSuccess: {r: 0, g: 1, b: 0, a: 0.5}
     BTLinkFailure: {r: 1, g: 0, b: 0, a: 0.5}
-  LeftPanelWidth: 300
+  LeftPanelWidth: 397
   SaveHistoryCount: 0
   CreateBlackboardInitializer: 1
   BotSDKOutputFolder: Assets/Resources/DB

@@ -195,6 +195,35 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.ZombieSpawner))]
+  public class ZombieSpawner_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.ZombieSpawner_Prototype> {
+    public System.Int32 spawnCount;
+    public Photon.Deterministic.FP spawnRate;
+    public Photon.Deterministic.FP spawnInitialDelay;
+    public Quantum.AssetRefEntityPrototype prefab;
+    public Quantum.AssetRef navmeshAgentConfig;
+    public Quantum.AssetRef navmeshAsset;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public Photon.Deterministic.FPVector3[] spawnPoints = System.Array.Empty<Photon.Deterministic.FPVector3>();
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] instances = System.Array.Empty<global::EntityPrototype>();
+
+    public sealed override Quantum.Prototypes.ZombieSpawner_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.ZombieSpawner_Prototype();
+      result.spawnCount = this.spawnCount;
+      result.spawnRate = this.spawnRate;
+      result.spawnInitialDelay = this.spawnInitialDelay;
+      result.prefab = this.prefab;
+      result.navmeshAgentConfig = this.navmeshAgentConfig;
+      result.navmeshAsset = this.navmeshAsset;
+      result.spawnPoints = this.spawnPoints;
+      result.instances = System.Array.ConvertAll(this.instances, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PhysicsJoints3D))]
   public class PhysicsJoints3D_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PhysicsJoints3D_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]

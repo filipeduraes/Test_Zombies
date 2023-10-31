@@ -13,11 +13,11 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Character
   - Lighting
   - Ground
   - Postprocessing
-  - PickUp
+  - Item
   - Breakable
   - Enemies
   - 

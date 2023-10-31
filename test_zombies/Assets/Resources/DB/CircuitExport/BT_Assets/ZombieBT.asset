@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-684575015224444521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09568acd7b0537545bfc31fc5d81b3c5, type: 3}
+  m_Name: FindClosestCharacter_0
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_0
+      Guid:
+        Value: 2455473932978594343
+    Label: FindClosestCharacter
+    Id: 2
+    Services: []
+    resultKey:
+      Key: ClosestCharacter
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b0dbcf082df1f41b094c977537f6a0, type: 3}
+  m_Name: ZombieBT
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT
+      Guid:
+        Value: 4402728546861690606
+    Label: 
+    Id: 0
+    Child:
+      Id:
+        Value: 3217770142462909898
+    AbortType: 0
+    NodesAmount: 4
+--- !u!114 &1374143550026552648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb05bc3f887b78449839e6e54e7ee21, type: 3}
+  m_Name: MoveToTarget_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+      Guid:
+        Value: 1195006700022705383
+    Label: MoveToTarget
+    Id: 3
+    Services: []
+    minDistance:
+      RawValue: 65536
+    navMeshAssetKey:
+      Key: NavMeshAsset
+    targetKey:
+      Key: ClosestCharacter
+--- !u!114 &1450213541846918365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c468cd7fadedb247993bc23ce96022f, type: 3}
+  m_Name: BTSequence_0
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
+      Guid:
+        Value: 3217770142462909898
+    Label: BTSequence
+    Id: 1
+    Children:
+    - Id:
+        Value: 2455473932978594343
+    - Id:
+        Value: 1195006700022705383
+    Services: []
+    TopmostDecorator:
+      Id:
+        Value: 0
+    CurrentChildIndex:
+      Index: 0
+    IsDynamic: 0
