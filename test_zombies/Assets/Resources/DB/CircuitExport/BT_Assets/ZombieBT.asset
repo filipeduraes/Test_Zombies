@@ -20,7 +20,7 @@ MonoBehaviour:
     Label: FindClosestCharacter
     Id: 2
     Services: []
-    resultKey: 
+    resultKey: ClosestCharacter
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

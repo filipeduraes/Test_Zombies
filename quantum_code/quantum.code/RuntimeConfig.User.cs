@@ -1,9 +1,15 @@
 ﻿using Photon.Deterministic;
-using System;
 
-namespace Quantum {
-  partial class RuntimeConfig
-  {
-      public int GridSize = 10;
-  }
+namespace Quantum 
+{
+    partial class RuntimeConfig
+    {
+        public AssetRefAIBlackboardInitializer BlackboardInitializer;
+        public int GridSize = 10;
+
+        partial void SerializeUserData(BitStream stream)
+        {
+            stream.Serialize(ref BlackboardInitializer.Id.Value);
+        }
+    }
 }

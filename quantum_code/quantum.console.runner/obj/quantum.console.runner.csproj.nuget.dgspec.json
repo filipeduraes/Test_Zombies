@@ -5,11 +5,15 @@
   },
   "projects": {
     "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
-      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
         "projectName": "quantum.code",
-        "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj"
+        "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
+        "frameworks": {
+          "net462": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net462": {}
@@ -42,6 +46,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
                 "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj"
@@ -57,6 +62,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",

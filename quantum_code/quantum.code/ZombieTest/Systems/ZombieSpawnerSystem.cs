@@ -5,7 +5,6 @@ namespace Quantum.ZombieTest.Systems
 {
     public unsafe class ZombieSpawnerSystem : SystemMainThreadFilter<ZombieSpawnerSystem.Filter>
     {
-        private BTRoot btRoot;
         private FP delayTime = 0;
         private FP timeSinceLastSpawn = 0;
         
@@ -17,20 +16,33 @@ namespace Quantum.ZombieTest.Systems
 
         public override void Update(Frame frame, ref Filter filter)
         {
+            QList<EntityRef> instances = GetInstances(frame, filter);
+
+            if (instances.Count > filter.Spawner->spawnCount)
+                return;
+
+            foreach (EntityRef instance in instances)
+            {
+                if(frame.Unsafe.TryGetPointer(instance, out AIBlackboardComponent* blackboard))
+                    BTManager.Update(frame, instance, blackboard);
+            }
+
+            CheckSpawn(frame, filter, instances);
+        }
+        
+        private static QList<EntityRef> GetInstances(Frame frame, Filter filter)
+        {
             if (!frame.TryResolveList(filter.Spawner->instances, out QList<EntityRef> instances))
             {
                 instances = frame.AllocateList(filter.Spawner->instances);
                 filter.Spawner->instances = instances;
             }
 
-            if (instances.Count > filter.Spawner->spawnCount)
-                return;
-
-            foreach (EntityRef instance in instances)
-                BTManager.Update(frame, instance);
-            
-            delayTime += frame.DeltaTime;
-
+            return instances;
+        }
+        
+        private void CheckSpawn(Frame frame, Filter filter, QList<EntityRef> instances)
+        {
             if (delayTime >= filter.Spawner->spawnInitialDelay)
             {
                 timeSinceLastSpawn += frame.DeltaTime;
@@ -41,6 +53,10 @@ namespace Quantum.ZombieTest.Systems
                     timeSinceLastSpawn = 0;
                 }
             }
+            else
+            {
+                delayTime += frame.DeltaTime;
+            }
         }
 
         private void SpawnAgent(Frame frame, ZombieSpawner* spawner, QList<EntityRef> instances)
@@ -49,17 +65,39 @@ namespace Quantum.ZombieTest.Systems
             
             if (frame.Unsafe.TryGetPointer(newAgent, out BTAgent* agent))
             {
-                btRoot ??= frame.FindAsset<BTRoot>(agent->Tree.Id);
-                BTManager.Init(frame, newAgent, btRoot);
+                InitializeBehaviorTree(frame, agent, newAgent);
+                InitializeBlackboard(frame, newAgent);
+                SetRandomPosition(frame, spawner, newAgent);
                 
                 instances.Add(newAgent);
+                
+                #if DEBUG
+                BotSDKDebuggerSystem.AddToDebugger(newAgent);
+                #endif
+            }
+        }
+        
+        private static void InitializeBehaviorTree(Frame frame, BTAgent* agent, EntityRef newAgent)
+        {
+            BTRoot btRoot = frame.FindAsset<BTRoot>(agent->Tree.Id);
+            BTManager.Init(frame, newAgent, btRoot);
+        }
 
-                if (frame.Unsafe.TryGetPointer(newAgent, out Transform3D* agentTransform))
-                {
-                    QList<FPVector3> spawnPoints = frame.ResolveList(spawner->spawnPoints);
-                    FPVector3 spawnPoint = spawnPoints.GetRandom(frame.RNG);
-                    agentTransform->Position = spawnPoint;
-                }
+        private static void InitializeBlackboard(Frame frame, EntityRef newAgent)
+        {
+            AIBlackboardComponent bbComponent = new();
+            AIBlackboardInitializer initializer = frame.FindAsset<AIBlackboardInitializer>(frame.RuntimeConfig.BlackboardInitializer.Id);
+            AIBlackboardInitializer.InitializeBlackboard(frame, &bbComponent, initializer);
+            frame.Set(newAgent, bbComponent);
+        }
+
+        private static void SetRandomPosition(Frame frame, ZombieSpawner* spawner, EntityRef newAgent)
+        {
+            if (frame.Unsafe.TryGetPointer(newAgent, out Transform3D* agentTransform))
+            {
+                QList<FPVector3> spawnPoints = frame.ResolveList(spawner->spawnPoints);
+                FPVector3 spawnPoint = spawnPoints.GetRandom(frame.RNG);
+                agentTransform->Position = spawnPoint;
             }
         }
 
