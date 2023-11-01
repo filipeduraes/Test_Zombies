@@ -1,4 +1,1 @@
-event LookDirectionChanged
-{
-	FPVector3 direction;
-}
+signal ChangeLookDirection(EntityRef sender, FPVector3 direction);

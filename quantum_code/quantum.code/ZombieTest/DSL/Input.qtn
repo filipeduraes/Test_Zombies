@@ -1,5 +1,8 @@
 ﻿input 
 {
+    FPVector3 MuzzlePosition;
     FPVector2 Direction;
     FPVector2 LookDelta;
+    Button Shoot;
+    Button Aim;
 }

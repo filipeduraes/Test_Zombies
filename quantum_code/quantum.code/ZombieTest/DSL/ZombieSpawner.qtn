@@ -1,6 +1,7 @@
 ﻿component ZombieSpawner
 {
     int spawnCount;
+    int health;
     FP spawnRate;
     FP spawnInitialDelay;
     AssetRefEntityPrototype prefab;

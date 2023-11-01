@@ -1,0 +1,17 @@
+﻿component Damageable
+{
+    int InitialHealth;
+    int MaxHealth;
+    [HideInInspector] int CurrentHealth;
+    
+    bool IsDead;
+}
+
+signal OnDamage(entity_ref target, entity_ref source, int damage);
+signal OnDeath(entity_ref target);
+
+event OnDamage
+{
+    entity_ref target;
+    int damage;
+}
