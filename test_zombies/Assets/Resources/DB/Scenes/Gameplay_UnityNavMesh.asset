@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb2d134f0fd8e447b08e569da2a1031, type: 3}
+  m_Name: Gameplay_UnityNavMesh
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/Scenes/Gameplay_UnityNavMesh
+      Guid:
+        Value: 919980335714377135
+    Name: UnityNavMesh
+    DataAsset:
+      Id:
+        Value: 483960208677307657
+    DataFilepath: 
+    GridSizeX: 28
+    GridSizeY: 34
+    GridNodeSize: 2
+    WorldOffset:
+      X:
+        RawValue: -1835008
+      Y:
+        RawValue: -2228224
+    MinAgentRadius:
+      RawValue: 32768

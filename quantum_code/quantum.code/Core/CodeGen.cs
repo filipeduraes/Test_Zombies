@@ -45,7 +45,6 @@ namespace Quantum {
     Attack = 1 << 2,
     Defend = 1 << 3,
     Jump = 1 << 4,
-    JumpButton = 1 << 5,
   }
   public static unsafe partial class InputButtons_ext {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -1802,7 +1801,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 120;
+    public const Int32 SIZE = 128;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(32)]
     public Button Action;
@@ -1810,13 +1809,13 @@ namespace Quantum {
     public Button Attack;
     [FieldOffset(56)]
     public Button Defend;
-    [FieldOffset(104)]
+    [FieldOffset(96)]
     public FPVector2 Direction;
     [FieldOffset(68)]
     public Button Jump;
+    [FieldOffset(112)]
+    public FPVector2 LookDelta;
     [FieldOffset(80)]
-    public Button JumpButton;
-    [FieldOffset(92)]
     public Button MoveBack;
     [FieldOffset(0)]
     public FP MovementHorizontal;
@@ -1835,7 +1834,7 @@ namespace Quantum {
         hash = hash * 31 + Defend.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
-        hash = hash * 31 + JumpButton.GetHashCode();
+        hash = hash * 31 + LookDelta.GetHashCode();
         hash = hash * 31 + MoveBack.GetHashCode();
         hash = hash * 31 + MovementHorizontal.GetHashCode();
         hash = hash * 31 + MovementVertical.GetHashCode();
@@ -1859,7 +1858,6 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.IsDown;
         case InputButtons.Defend: return Defend.IsDown;
         case InputButtons.Jump: return Jump.IsDown;
-        case InputButtons.JumpButton: return JumpButton.IsDown;
       }
       return false;
     }
@@ -1870,7 +1868,6 @@ namespace Quantum {
         case InputButtons.Attack: return Attack.WasPressed;
         case InputButtons.Defend: return Defend.WasPressed;
         case InputButtons.Jump: return Jump.WasPressed;
-        case InputButtons.JumpButton: return JumpButton.WasPressed;
       }
       return false;
     }
@@ -1884,9 +1881,9 @@ namespace Quantum {
         Button.Serialize(&p->Attack, serializer);
         Button.Serialize(&p->Defend, serializer);
         Button.Serialize(&p->Jump, serializer);
-        Button.Serialize(&p->JumpButton, serializer);
         Button.Serialize(&p->MoveBack, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
+        FPVector2.Serialize(&p->LookDelta, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1935,7 +1932,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1256;
+    public const Int32 SIZE = 1304;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(48)]
     public BotSDKData BotSDKData;
@@ -1947,20 +1944,20 @@ namespace Quantum {
     public AssetRefMap Map;
     [FieldOffset(24)]
     public NavMeshRegionMask NavMeshRegions;
-    [FieldOffset(960)]
+    [FieldOffset(1008)]
     public PhysicsSceneSettings PhysicsSettings;
     [FieldOffset(8)]
     public BitSet6 PlayerLastConnectionState;
     [FieldOffset(32)]
     public RNGSession RngSession;
-    [FieldOffset(832)]
-    public BitSet1024 Systems;
     [FieldOffset(112)]
+    public BitSet1024 Systems;
+    [FieldOffset(240)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[720];
+    private fixed Byte _input_[768];
     public FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 120, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 128, 6); }
       }
     }
     public override Int32 GetHashCode() {
@@ -1988,8 +1985,8 @@ namespace Quantum {
         RNGSession.Serialize(&p->RngSession, serializer);
         Quantum.BotSDKData.Serialize(&p->BotSDKData, serializer);
         FrameMetaData.Serialize(&p->FrameMetaData, serializer);
-        FixedArray.Serialize(p->input, serializer, StaticDelegates.SerializeInput);
         Quantum.BitSet1024.Serialize(&p->Systems, serializer);
+        FixedArray.Serialize(p->input, serializer, StaticDelegates.SerializeInput);
         PhysicsSceneSettings.Serialize(&p->PhysicsSettings, serializer);
     }
   }
@@ -2727,6 +2724,24 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct PlayerLink : Quantum.IComponent {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 4;
+    [FieldOffset(0)]
+    public PlayerRef Player;
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 349;
+        hash = hash * 31 + Player.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (PlayerLink*)ptr;
+        PlayerRef.Serialize(&p->Player, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Projectile : Quantum.IComponent {
     public const Int32 SIZE = 24;
     public const Int32 ALIGNMENT = 8;
@@ -2740,7 +2755,7 @@ namespace Quantum {
     public AssetRefWeaponSpec WeaponSpec;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 349;
+        var hash = 353;
         hash = hash * 31 + DamageZoneQueryIndex.GetHashCode();
         hash = hash * 31 + PathQueryIndex.GetHashCode();
         hash = hash * 31 + Speed.GetHashCode();
@@ -2770,7 +2785,7 @@ namespace Quantum {
     public FP TimeLapsed;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 353;
+        var hash = 359;
         hash = hash * 31 + AttackAnimation.GetHashCode();
         hash = hash * 31 + IsAnimating.GetHashCode();
         hash = hash * 31 + TimeLapsed.GetHashCode();
@@ -2795,7 +2810,7 @@ namespace Quantum {
     public QBoolean IsBlocking;
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 359;
+        var hash = 367;
         hash = hash * 31 + BlockPercentage.GetHashCode();
         hash = hash * 31 + IsBlocking.GetHashCode();
         return hash;
@@ -2815,7 +2830,7 @@ namespace Quantum {
     private fixed Byte _alignment_padding_[4];
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 367;
+        var hash = 373;
         return hash;
       }
     }
@@ -2845,7 +2860,7 @@ namespace Quantum {
     }
     public override Int32 GetHashCode() {
       unchecked { 
-        var hash = 373;
+        var hash = 379;
         hash = hash * 31 + AlreadyHitPtr.GetHashCode();
         hash = hash * 31 + IsEquipped.GetHashCode();
         hash = hash * 31 + WeaponSpec.GetHashCode();
@@ -2864,6 +2879,79 @@ namespace Quantum {
         QBoolean.Serialize(&p->IsEquipped, serializer);
         QList.Serialize(p->AlreadyHit, &p->AlreadyHitPtr, serializer, StaticDelegates.SerializeEntityRef);
         Quantum.AssetRefWeaponSpec.Serialize(&p->WeaponSpec, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct ZombieSpawner : Quantum.IComponent {
+    public const Int32 SIZE = 56;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(4)]
+    [HideInInspector()]
+    [FramePrinter.PtrQListAttribute(typeof(EntityRef))]
+    private Quantum.Ptr instancesPtr;
+    [FieldOffset(16)]
+    public AssetRef navmeshAgentConfig;
+    [FieldOffset(24)]
+    public AssetRef navmeshAsset;
+    [FieldOffset(32)]
+    public AssetRefEntityPrototype prefab;
+    [FieldOffset(0)]
+    public Int32 spawnCount;
+    [FieldOffset(40)]
+    public FP spawnInitialDelay;
+    [FieldOffset(8)]
+    [FramePrinter.PtrQListAttribute(typeof(FPVector3))]
+    private Quantum.Ptr spawnPointsPtr;
+    [FieldOffset(48)]
+    public FP spawnRate;
+    public QListPtr<EntityRef> instances {
+      get {
+        return new QListPtr<EntityRef>(instancesPtr);
+      }
+      set {
+        instancesPtr = value.Ptr;
+      }
+    }
+    public QListPtr<FPVector3> spawnPoints {
+      get {
+        return new QListPtr<FPVector3>(spawnPointsPtr);
+      }
+      set {
+        spawnPointsPtr = value.Ptr;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 383;
+        hash = hash * 31 + instancesPtr.GetHashCode();
+        hash = hash * 31 + navmeshAgentConfig.GetHashCode();
+        hash = hash * 31 + navmeshAsset.GetHashCode();
+        hash = hash * 31 + prefab.GetHashCode();
+        hash = hash * 31 + spawnCount.GetHashCode();
+        hash = hash * 31 + spawnInitialDelay.GetHashCode();
+        hash = hash * 31 + spawnPointsPtr.GetHashCode();
+        hash = hash * 31 + spawnRate.GetHashCode();
+        return hash;
+      }
+    }
+    public void ClearPointers(Frame f, EntityRef entity) {
+      instancesPtr = default;
+      spawnPointsPtr = default;
+    }
+    public static void OnRemoved(FrameBase frame, EntityRef entity, void* ptr) {
+      var p = (ZombieSpawner*)ptr;
+      p->ClearPointers((Frame)frame, entity);
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (ZombieSpawner*)ptr;
+        serializer.Stream.Serialize(&p->spawnCount);
+        QList.Serialize(p->instances, &p->instancesPtr, serializer, StaticDelegates.SerializeEntityRef);
+        QList.Serialize(p->spawnPoints, &p->spawnPointsPtr, serializer, StaticDelegates.SerializeFPVector3);
+        AssetRef.Serialize(&p->navmeshAgentConfig, serializer);
+        AssetRef.Serialize(&p->navmeshAsset, serializer);
+        AssetRefEntityPrototype.Serialize(&p->prefab, serializer);
+        FP.Serialize(&p->spawnInitialDelay, serializer);
+        FP.Serialize(&p->spawnRate, serializer);
     }
   }
   public unsafe partial class Frame {
@@ -2891,11 +2979,13 @@ namespace Quantum {
         ComponentTypeId.Add<Quantum.Mana>(Quantum.Mana.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PickUpSlot>(Quantum.PickUpSlot.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.PlayerID>(Quantum.PlayerID.Serialize, null, null, ComponentFlags.None);
+        ComponentTypeId.Add<Quantum.PlayerLink>(Quantum.PlayerLink.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Projectile>(Quantum.Projectile.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.QAnimationState>(Quantum.QAnimationState.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Shield>(Quantum.Shield.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.UTAgent>(Quantum.UTAgent.Serialize, null, null, ComponentFlags.None);
         ComponentTypeId.Add<Quantum.Weapon>(Quantum.Weapon.Serialize, null, Quantum.Weapon.OnRemoved, ComponentFlags.None);
+        ComponentTypeId.Add<Quantum.ZombieSpawner>(Quantum.ZombieSpawner.Serialize, null, Quantum.ZombieSpawner.OnRemoved, ComponentFlags.None);
       });
     }
     partial void InitGen() {
@@ -2950,6 +3040,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.PickUpSlot>();
       BuildSignalsArrayOnComponentAdded<Quantum.PlayerID>();
       BuildSignalsArrayOnComponentRemoved<Quantum.PlayerID>();
+      BuildSignalsArrayOnComponentAdded<Quantum.PlayerLink>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.PlayerLink>();
       BuildSignalsArrayOnComponentAdded<Quantum.Projectile>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Projectile>();
       BuildSignalsArrayOnComponentAdded<Quantum.QAnimationState>();
@@ -2968,6 +3060,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<View>();
       BuildSignalsArrayOnComponentAdded<Quantum.Weapon>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Weapon>();
+      BuildSignalsArrayOnComponentAdded<Quantum.ZombieSpawner>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.ZombieSpawner>();
     }
     public void SetPlayerInput(Int32 player, Input input) {
       if ((uint)player >= (uint)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
@@ -2981,8 +3075,8 @@ namespace Quantum {
       i->Attack = i->Attack.Update(this.Number, input.Attack);
       i->Defend = i->Defend.Update(this.Number, input.Defend);
       i->Jump = i->Jump.Update(this.Number, input.Jump);
-      i->JumpButton = i->JumpButton.Update(this.Number, input.JumpButton);
       i->Direction = input.Direction;
+      i->LookDelta = input.LookDelta;
     }
     public Input* GetPlayerInput(Int32 player) {
       if ((uint)player >= (uint)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
@@ -2991,7 +3085,7 @@ namespace Quantum {
     public unsafe partial struct FrameSignals {
     }
     public unsafe partial struct FrameEvents {
-      public const Int32 EVENT_TYPE_COUNT = 11;
+      public const Int32 EVENT_TYPE_COUNT = 12;
       public static Int32 GetParentEventID(Int32 eventID) {
         switch (eventID) {
           case EventOnDamageDealt.ID: return EventResourceEvent.ID;
@@ -3016,6 +3110,7 @@ namespace Quantum {
           case EventOnPickUpHealthPotion.ID: return typeof(EventOnPickUpHealthPotion);
           case EventOnPickUpManaPotion.ID: return typeof(EventOnPickUpManaPotion);
           case EventOnPickUpCoins.ID: return typeof(EventOnPickUpCoins);
+          case EventLookDirectionChanged.ID: return typeof(EventLookDirectionChanged);
           default: throw new System.ArgumentOutOfRangeException("eventID");
         }
       }
@@ -3089,6 +3184,12 @@ namespace Quantum {
         var ev = _f.Context.AcquireEvent<EventOnPickUpCoins>(EventOnPickUpCoins.ID);
         ev.Amount = Amount;
         ev.Target = Target;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventLookDirectionChanged LookDirectionChanged(FPVector3 direction) {
+        var ev = _f.Context.AcquireEvent<EventLookDirectionChanged>(EventLookDirectionChanged.ID);
+        ev.direction = direction;
         _f.AddEvent(ev);
         return ev;
       }
@@ -3399,6 +3500,31 @@ namespace Quantum {
       }
     }
   }
+  public unsafe partial class EventLookDirectionChanged : EventBase {
+    public new const Int32 ID = 11;
+    public FPVector3 direction;
+    protected EventLookDirectionChanged(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventLookDirectionChanged() : 
+        base(11, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 83;
+        hash = hash * 31 + direction.GetHashCode();
+        return hash;
+      }
+    }
+  }
   public static unsafe partial class BitStreamExtensions {
     public static void Serialize(this IBitStream stream, ref AssetRefAIAction value) {
       stream.Serialize(ref value.Id.Value);
@@ -3582,6 +3708,9 @@ namespace Quantum {
     public virtual void Visit(Prototypes.PlayerID_Prototype prototype) {
       VisitFallback(prototype);
     }
+    public virtual void Visit(Prototypes.PlayerLink_Prototype prototype) {
+      VisitFallback(prototype);
+    }
     public virtual void Visit(Prototypes.Projectile_Prototype prototype) {
       VisitFallback(prototype);
     }
@@ -3595,6 +3724,9 @@ namespace Quantum {
       VisitFallback(prototype);
     }
     public virtual void Visit(Prototypes.Weapon_Prototype prototype) {
+      VisitFallback(prototype);
+    }
+    public virtual void Visit(Prototypes.ZombieSpawner_Prototype prototype) {
       VisitFallback(prototype);
     }
   }
@@ -3613,6 +3745,7 @@ namespace Quantum {
     public static FrameSerializer.Delegate SerializeEntityRef;
     public static FrameSerializer.Delegate SerializeEntityTimer;
     public static FrameSerializer.Delegate SerializeDamage;
+    public static FrameSerializer.Delegate SerializeFPVector3;
     public static FrameSerializer.Delegate SerializeInput;
     static partial void InitGen() {
       SerializeBlackboardEntry = Quantum.BlackboardEntry.Serialize;
@@ -3627,6 +3760,7 @@ namespace Quantum {
       SerializeEntityRef = EntityRef.Serialize;
       SerializeEntityTimer = Quantum.EntityTimer.Serialize;
       SerializeDamage = Quantum.Damage.Serialize;
+      SerializeFPVector3 = FPVector3.Serialize;
       SerializeInput = Quantum.Input.Serialize;
     }
   }
@@ -3744,6 +3878,7 @@ namespace Quantum {
       Register(typeof(PhysicsSceneSettings), PhysicsSceneSettings.SIZE);
       Register(typeof(Quantum.PickUpSlot), Quantum.PickUpSlot.SIZE);
       Register(typeof(Quantum.PlayerID), Quantum.PlayerID.SIZE);
+      Register(typeof(Quantum.PlayerLink), Quantum.PlayerLink.SIZE);
       Register(typeof(PlayerRef), PlayerRef.SIZE);
       Register(typeof(Quantum.Projectile), Quantum.Projectile.SIZE);
       Register(typeof(Ptr), Ptr.SIZE);
@@ -3764,6 +3899,7 @@ namespace Quantum {
       Register(typeof(Quantum.UTMomentumPack), Quantum.UTMomentumPack.SIZE);
       Register(typeof(View), View.SIZE);
       Register(typeof(Quantum.Weapon), Quantum.Weapon.SIZE);
+      Register(typeof(Quantum.ZombieSpawner), Quantum.ZombieSpawner.SIZE);
       Register(typeof(Quantum._globals_), Quantum._globals_.SIZE);
     }
   }
@@ -4366,8 +4502,8 @@ namespace Quantum.Prototypes {
     public Button Attack;
     public Button Defend;
     public Button Jump;
-    public Button JumpButton;
     public FPVector2 Direction;
+    public FPVector2 LookDelta;
     partial void MaterializeUser(Frame frame, ref Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Input result, in PrototypeMaterializationContext context) {
       result.Action = this.Action;
@@ -4375,7 +4511,7 @@ namespace Quantum.Prototypes {
       result.Defend = this.Defend;
       result.Direction = this.Direction;
       result.Jump = this.Jump;
-      result.JumpButton = this.JumpButton;
+      result.LookDelta = this.LookDelta;
       result.MoveBack = this.MoveBack;
       result.MovementHorizontal = this.MovementHorizontal;
       result.MovementVertical = this.MovementVertical;
@@ -4451,6 +4587,24 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref PlayerID result, in PrototypeMaterializationContext context) {
       result.PlayerRef = this.PlayerRef;
+      MaterializeUser(frame, ref result, in context);
+    }
+    public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
+      ((ComponentPrototypeVisitor)visitor).Visit(this);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Prototype(typeof(PlayerLink))]
+  public sealed unsafe partial class PlayerLink_Prototype : ComponentPrototype<PlayerLink> {
+    public PlayerRef Player;
+    partial void MaterializeUser(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+      PlayerLink component = default;
+      Materialize((Frame)f, ref component, in context);
+      return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context) {
+      result.Player = this.Player;
       MaterializeUser(frame, ref result, in context);
     }
     public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
@@ -4602,6 +4756,61 @@ namespace Quantum.Prototypes {
       ((ComponentPrototypeVisitor)visitor).Visit(this);
     }
   }
+  [System.SerializableAttribute()]
+  [Prototype(typeof(ZombieSpawner))]
+  public sealed unsafe partial class ZombieSpawner_Prototype : ComponentPrototype<ZombieSpawner> {
+    public Int32 spawnCount;
+    public FP spawnRate;
+    public FP spawnInitialDelay;
+    public AssetRefEntityPrototype prefab;
+    public AssetRef navmeshAgentConfig;
+    public AssetRef navmeshAsset;
+    [DynamicCollectionAttribute()]
+    public FPVector3[] spawnPoints = {};
+    [HideInInspector()]
+    [DynamicCollectionAttribute()]
+    public MapEntityId[] instances = {};
+    partial void MaterializeUser(Frame frame, ref ZombieSpawner result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+      ZombieSpawner component = default;
+      Materialize((Frame)f, ref component, in context);
+      return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref ZombieSpawner result, in PrototypeMaterializationContext context) {
+      if (this.instances.Length == 0) {
+        result.instances = default;
+      } else {
+        var list = frame.AllocateList(result.instances, this.instances.Length);
+        for (int i = 0; i < this.instances.Length; ++i) {
+          EntityRef tmp = default;
+          PrototypeValidator.FindMapEntity(this.instances[i], in context, out tmp);
+          list.Add(tmp);
+        }
+        result.instances = list;
+      }
+      result.navmeshAgentConfig = this.navmeshAgentConfig;
+      result.navmeshAsset = this.navmeshAsset;
+      result.prefab = this.prefab;
+      result.spawnCount = this.spawnCount;
+      result.spawnInitialDelay = this.spawnInitialDelay;
+      if (this.spawnPoints.Length == 0) {
+        result.spawnPoints = default;
+      } else {
+        var list = frame.AllocateList(result.spawnPoints, this.spawnPoints.Length);
+        for (int i = 0; i < this.spawnPoints.Length; ++i) {
+          FPVector3 tmp = default;
+          tmp = this.spawnPoints[i];
+          list.Add(tmp);
+        }
+        result.spawnPoints = list;
+      }
+      result.spawnRate = this.spawnRate;
+      MaterializeUser(frame, ref result, in context);
+    }
+    public override void Dispatch(ComponentPrototypeVisitorBase visitor) {
+      ((ComponentPrototypeVisitor)visitor).Visit(this);
+    }
+  }
   public unsafe partial class FlatEntityPrototypeContainer {
     [ArrayLength(0, 1)]
     public List<Prototypes.AIBlackboardComponent_Prototype> AIBlackboardComponent;
@@ -4630,6 +4839,8 @@ namespace Quantum.Prototypes {
     [ArrayLength(0, 1)]
     public List<Prototypes.PlayerID_Prototype> PlayerID;
     [ArrayLength(0, 1)]
+    public List<Prototypes.PlayerLink_Prototype> PlayerLink;
+    [ArrayLength(0, 1)]
     public List<Prototypes.Projectile_Prototype> Projectile;
     [ArrayLength(0, 1)]
     public List<Prototypes.QAnimationState_Prototype> QAnimationState;
@@ -4639,6 +4850,8 @@ namespace Quantum.Prototypes {
     public List<Prototypes.UTAgent_Prototype> UTAgent;
     [ArrayLength(0, 1)]
     public List<Prototypes.Weapon_Prototype> Weapon;
+    [ArrayLength(0, 1)]
+    public List<Prototypes.ZombieSpawner_Prototype> ZombieSpawner;
     partial void CollectGen(List<ComponentPrototype> target) {
       Collect(AIBlackboardComponent, target);
       Collect(BTAgent, target);
@@ -4653,11 +4866,13 @@ namespace Quantum.Prototypes {
       Collect(Mana, target);
       Collect(PickUpSlot, target);
       Collect(PlayerID, target);
+      Collect(PlayerLink, target);
       Collect(Projectile, target);
       Collect(QAnimationState, target);
       Collect(Shield, target);
       Collect(UTAgent, target);
       Collect(Weapon, target);
+      Collect(ZombieSpawner, target);
     }
     public unsafe partial class StoreVisitor {
       public override void Visit(Prototypes.AIBlackboardComponent_Prototype prototype) {
@@ -4699,6 +4914,9 @@ namespace Quantum.Prototypes {
       public override void Visit(Prototypes.PlayerID_Prototype prototype) {
         Storage.Store(prototype, ref Storage.PlayerID);
       }
+      public override void Visit(Prototypes.PlayerLink_Prototype prototype) {
+        Storage.Store(prototype, ref Storage.PlayerLink);
+      }
       public override void Visit(Prototypes.Projectile_Prototype prototype) {
         Storage.Store(prototype, ref Storage.Projectile);
       }
@@ -4713,6 +4931,9 @@ namespace Quantum.Prototypes {
       }
       public override void Visit(Prototypes.Weapon_Prototype prototype) {
         Storage.Store(prototype, ref Storage.Weapon);
+      }
+      public override void Visit(Prototypes.ZombieSpawner_Prototype prototype) {
+        Storage.Store(prototype, ref Storage.ZombieSpawner);
       }
     }
   }

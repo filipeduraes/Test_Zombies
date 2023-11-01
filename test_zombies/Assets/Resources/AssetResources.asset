@@ -12,35 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd8e95ae0daaec4496511105240e8a3, type: 3}
   m_Name: AssetResources
   m_EditorClassIdentifier: 
+  AddressablesGroup:
+    _resources: []
   AssetBundlesGroup:
     _resources: []
   ResourcesGroup:
     _resources:
-    - Path: Resources/DB/Configs/DefaultPhysicsMaterial
+    - Path: Resources/DB/Data/Configs/DefaultPhysicsMaterial
       AssetRef:
         Id:
           Value: 1
-      ResourcePath: DB/Configs/DefaultPhysicsMaterial
-    - Path: Resources/DB/Configs/DefaultNavMeshAgentConfig
+      ResourcePath: DB/Data/Configs/DefaultPhysicsMaterial
+    - Path: Resources/DB/Data/Configs/DefaultNavMeshAgentConfig
       AssetRef:
         Id:
           Value: 2
-      ResourcePath: DB/Configs/DefaultNavMeshAgentConfig
-    - Path: Resources/DB/Configs/DefaultCharacterController2D
-      AssetRef:
-        Id:
-          Value: 3
-      ResourcePath: DB/Configs/DefaultCharacterController2D
-    - Path: Resources/DB/Configs/DefaultCharacterController3D
+      ResourcePath: DB/Data/Configs/DefaultNavMeshAgentConfig
+    - Path: Resources/DB/Data/Configs/DefaultCharacterController3D
       AssetRef:
         Id:
           Value: 4
-      ResourcePath: DB/Configs/DefaultCharacterController3D
-    - Path: Resources/DB/Configs/SimulationConfig
+      ResourcePath: DB/Data/Configs/DefaultCharacterController3D
+    - Path: Resources/DB/Data/Configs/SimulationConfig
       AssetRef:
         Id:
           Value: 5
-      ResourcePath: DB/Configs/SimulationConfig
+      ResourcePath: DB/Data/Configs/SimulationConfig
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Go to Target Position_3
       AssetRef:
         Id:
@@ -66,11 +63,21 @@ MonoBehaviour:
         Id:
           Value: 353696852809583513
       ResourcePath: DB/Prototypes/Player
+    - Path: Resources/DB/Data/AI/NavMeshAgentConfigAsset
+      AssetRef:
+        Id:
+          Value: 438239720525103854
+      ResourcePath: DB/Data/AI/NavMeshAgentConfigAsset
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SelectTargetPositionRandom_5
       AssetRef:
         Id:
           Value: 453968868590482770
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Scenes/Gameplay_UnityNavMesh_data
+      AssetRef:
+        Id:
+          Value: 483960208677307657
+      ResourcePath: DB/Scenes/Gameplay_UnityNavMesh_data
     - Path: Resources/DB/QAssets/DefaultPotionHealth
       AssetRef:
         Id:
@@ -81,6 +88,11 @@ MonoBehaviour:
         Id:
           Value: 630547417091587576
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/Data/AI/ZombieAIConfig
+      AssetRef:
+        Id:
+          Value: 675802829262082167
+      ResourcePath: DB/Data/AI/ZombieAIConfig
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot|TrueDecision_0
       AssetRef:
         Id:
@@ -106,6 +118,11 @@ MonoBehaviour:
         Id:
           Value: 890473571884936016
       ResourcePath: DB/QAssets/DefaultAttackClip
+    - Path: Resources/DB/Scenes/Gameplay_UnityNavMesh
+      AssetRef:
+        Id:
+          Value: 919980335714377135
+      ResourcePath: DB/Scenes/Gameplay_UnityNavMesh
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
       AssetRef:
         Id:
@@ -116,6 +133,11 @@ MonoBehaviour:
         Id:
           Value: 1149378074360189638
       ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+      AssetRef:
+        Id:
+          Value: 1195006700022705383
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/NestedAssetType|EntityPrototype
       AssetRef:
         Id:
@@ -161,6 +183,11 @@ MonoBehaviour:
         Id:
           Value: 1583348271447699218
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/CharacterController3DConfigAsset
+      AssetRef:
+        Id:
+          Value: 1766174726734065469
+      ResourcePath: DB/Prototypes/CharacterController3DConfigAsset
     - Path: Resources/DB/EntityPrototypes/Lion QPrefab|EntityPrototype
       AssetRef:
         Id:
@@ -171,6 +198,11 @@ MonoBehaviour:
         Id:
           Value: 1805011857375156809
       ResourcePath: DB/Scenes/Gameplay
+    - Path: Resources/DB/AIConfigAsset
+      AssetRef:
+        Id:
+          Value: 1805344965358539058
+      ResourcePath: DB/AIConfigAsset
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|Find Target Position_2
       AssetRef:
         Id:
@@ -181,6 +213,11 @@ MonoBehaviour:
         Id:
           Value: 1885450974166878644
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/Zombie|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2008970885342591419
+      ResourcePath: DB/Prototypes/Zombie
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SimpleBot
       AssetRef:
         Id:
@@ -201,6 +238,11 @@ MonoBehaviour:
         Id:
           Value: 2372440079921492754
       ResourcePath: DB/ExampleScene_Map_NavMesh_data
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_0
+      AssetRef:
+        Id:
+          Value: 2455473932978594343
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/Prototypes/Player|EntityPrototype
       AssetRef:
         Id:
@@ -226,6 +268,11 @@ MonoBehaviour:
         Id:
           Value: 2734409539278796592
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboard
+      AssetRef:
+        Id:
+          Value: 2752945826699186964
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboard
     - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityView
       AssetRef:
         Id:
@@ -261,6 +308,11 @@ MonoBehaviour:
         Id:
           Value: 3043672044863171840
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboardInitializer
+      AssetRef:
+        Id:
+          Value: 3045838966159883119
+      ResourcePath: DB/CircuitExport/Blackboard_Assets/ZombieBTBlackboardInitializer
     - Path: Resources/DB/EntityPrototypes/Stone Round QPrefab|EntityPrototype
       AssetRef:
         Id:
@@ -281,6 +333,11 @@ MonoBehaviour:
         Id:
           Value: 3206195024203956000
       ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
+      AssetRef:
+        Id:
+          Value: 3217770142462909898
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI
       AssetRef:
         Id:
@@ -306,11 +363,11 @@ MonoBehaviour:
         Id:
           Value: 3505610095514768427
       ResourcePath: DB/EntityPrototypes/PotionHealth QPrefab
-    - Path: Resources/DB/Configs/SimulationConfigDefault
+    - Path: Resources/DB/Data/Configs/SimulationConfigDefault
       AssetRef:
         Id:
           Value: 3519286922392886800
-      ResourcePath: DB/Configs/SimulationConfigDefault
+      ResourcePath: DB/Data/Configs/SimulationConfigDefault
     - Path: Resources/DB/EntityPrototypes/PotionMana QPrefab|EntityPrototype
       AssetRef:
         Id:
@@ -356,6 +413,11 @@ MonoBehaviour:
         Id:
           Value: 4370697924318058966
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT
+      AssetRef:
+        Id:
+          Value: 4402728546861690606
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/QAssets/SlimeNavMeshAgentDefault
       AssetRef:
         Id:
@@ -371,3 +433,8 @@ MonoBehaviour:
         Id:
           Value: 4421376895616627221
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/Prototypes/Zombie|EntityView
+      AssetRef:
+        Id:
+          Value: 4516035085203949318
+      ResourcePath: DB/Prototypes/Zombie

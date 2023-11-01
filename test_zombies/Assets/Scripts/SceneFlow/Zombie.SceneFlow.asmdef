@@ -1,0 +1,18 @@
+{
+    "name": "Zombie.SceneFlow",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d7446da85b13f214d9e3177abc66f9da",
+        "GUID:bf28539416f74e5ab5547b4b2ec34bdd",
+        "GUID:f6fa0c2f8b9a9f64897d3351666f3d66"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
