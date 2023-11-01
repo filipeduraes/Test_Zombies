@@ -1,4 +1,5 @@
 component PlayerLink
 {
     player_ref Player;
+    [HideInInspector] FPVector3 LookDirection;
 }

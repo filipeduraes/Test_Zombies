@@ -1,10 +1,12 @@
 ﻿using Photon.Deterministic;
 using Quantum.Collections;
+using Quantum.Physics3D;
 
 namespace Quantum.ZombieTest.Systems
 {
-    public unsafe class ZombieSpawnerSystem : SystemMainThreadFilter<ZombieSpawnerSystem.Filter>
+    public unsafe class ZombieSpawnerSystem : SystemMainThreadFilter<ZombieSpawnerSystem.Filter>, ISignalOnDeath
     {
+        private QList<EntityRef> instances;
         private FP delayTime = 0;
         private FP timeSinceLastSpawn = 0;
         
@@ -16,7 +18,7 @@ namespace Quantum.ZombieTest.Systems
 
         public override void Update(Frame frame, ref Filter filter)
         {
-            QList<EntityRef> instances = GetInstances(frame, filter);
+            ResolveInstances(frame, filter);
 
             if (instances.Count > filter.Spawner->spawnCount)
             {
@@ -34,21 +36,19 @@ namespace Quantum.ZombieTest.Systems
                     BTManager.Update(frame, instance, blackboard);
             }
 
-            CheckSpawn(frame, filter, instances);
+            CheckSpawn(frame, filter);
         }
         
-        private static QList<EntityRef> GetInstances(Frame frame, Filter filter)
+        private void ResolveInstances(Frame frame, Filter filter)
         {
-            if (!frame.TryResolveList(filter.Spawner->instances, out QList<EntityRef> instances))
+            if (!frame.TryResolveList(filter.Spawner->instances, out instances))
             {
                 instances = frame.AllocateList(filter.Spawner->instances);
                 filter.Spawner->instances = instances;
             }
-
-            return instances;
         }
         
-        private void CheckSpawn(Frame frame, Filter filter, QList<EntityRef> instances)
+        private void CheckSpawn(Frame frame, Filter filter)
         {
             if (delayTime >= filter.Spawner->spawnInitialDelay)
             {
@@ -56,7 +56,7 @@ namespace Quantum.ZombieTest.Systems
 
                 if (timeSinceLastSpawn >= filter.Spawner->spawnRate)
                 {
-                    SpawnAgent(frame, filter.Spawner, instances);
+                    SpawnAgent(frame, filter.Spawner);
                     timeSinceLastSpawn = 0;
                 }
             }
@@ -66,7 +66,7 @@ namespace Quantum.ZombieTest.Systems
             }
         }
 
-        private void SpawnAgent(Frame frame, ZombieSpawner* spawner, QList<EntityRef> instances)
+        private void SpawnAgent(Frame frame, ZombieSpawner* spawner)
         {
             EntityRef newAgent = frame.Create(spawner->prefab);
             
@@ -75,18 +75,23 @@ namespace Quantum.ZombieTest.Systems
                 InitializeBehaviorTree(frame, agent, newAgent);
                 InitializeBlackboard(frame, newAgent);
                 InitializeNavmesh(frame, spawner->navmeshAgentConfig, spawner->navmeshAsset, newAgent);
+                InitializeHealth(frame, spawner, newAgent);
                 SetRandomPosition(frame, spawner, newAgent);
-
-                Damageable damageable = new();
-                damageable.MaxHealth = spawner->health;
-                damageable.CurrentHealth = damageable.MaxHealth;
-                frame.Set(newAgent, damageable);
 
                 instances.Add(newAgent);
                 
                 #if DEBUG
                 BotSDKDebuggerSystem.AddToDebugger(newAgent);
                 #endif
+            }
+        }
+
+        private static void InitializeHealth(Frame frame, ZombieSpawner* spawner, EntityRef newAgent)
+        {
+            if(frame.TryAddComponent(newAgent, out Damageable* damageable))
+            {
+                damageable->MaxHealth = spawner->health;
+                damageable->CurrentHealth = spawner->health;
             }
         }
 
@@ -98,7 +103,7 @@ namespace Quantum.ZombieTest.Systems
 
         private static void InitializeBlackboard(Frame frame, EntityRef newAgent)
         {
-            AIBlackboardComponent bbComponent = new();
+            AIBlackboardComponent bbComponent = new AIBlackboardComponent();
             AIBlackboardInitializer initializer = frame.FindAsset<AIBlackboardInitializer>(frame.RuntimeConfig.BlackboardInitializer.Id);
             AIBlackboardInitializer.InitializeBlackboard(frame, &bbComponent, initializer);
             frame.Set(newAgent, bbComponent);
@@ -109,7 +114,7 @@ namespace Quantum.ZombieTest.Systems
             NavMeshAgentConfig navMeshAgentConfig = frame.FindAsset<NavMeshAgentConfig>(agentConfigAsset);
             NavMesh navMesh = frame.FindAsset<NavMesh>(navMeshAsset);
             NavMeshPathfinder pathfinder = NavMeshPathfinder.Create(frame, newAgent, navMeshAgentConfig);
-            NavMeshSteeringAgent steeringAgent = new();
+            NavMeshSteeringAgent steeringAgent = new NavMeshSteeringAgent();
 
             pathfinder.SetTarget(frame, FPVector3.Zero, navMesh);
             frame.Set(newAgent, pathfinder);
@@ -122,8 +127,19 @@ namespace Quantum.ZombieTest.Systems
             {
                 QList<FPVector3> spawnPoints = frame.ResolveList(spawner->spawnPoints);
                 FPVector3 spawnPoint = spawnPoints.GetRandom(frame.RNG);
+
+                Hit3D? hit = frame.Physics3D.Raycast(spawnPoint + FPVector3.Up, FPVector3.Down, 5);
+                
+                if (hit.HasValue)
+                    spawnPoint.Y = hit.Value.Point.Y;
+                
                 agentTransform->Position = spawnPoint;
             }
+        }
+        
+        public void OnDeath(Frame frame, EntityRef target)
+        {
+            instances.Remove(target);
         }
 
         public struct Filter

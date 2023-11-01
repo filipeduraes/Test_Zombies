@@ -2465,19 +2465,19 @@ namespace Quantum {
     public const Int32 SIZE = 16;
     public const Int32 ALIGNMENT = 4;
     [FieldOffset(0)]
-    [HideInInspector()]
     public Int32 CurrentHealth;
-    [FieldOffset(4)]
-    public Int32 InitialHealth;
+    [FieldOffset(8)]
+    [HideInInspector()]
+    public QBoolean HasInitialized;
     [FieldOffset(12)]
     public QBoolean IsDead;
-    [FieldOffset(8)]
+    [FieldOffset(4)]
     public Int32 MaxHealth;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 283;
         hash = hash * 31 + CurrentHealth.GetHashCode();
-        hash = hash * 31 + InitialHealth.GetHashCode();
+        hash = hash * 31 + HasInitialized.GetHashCode();
         hash = hash * 31 + IsDead.GetHashCode();
         hash = hash * 31 + MaxHealth.GetHashCode();
         return hash;
@@ -2486,8 +2486,8 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Damageable*)ptr;
         serializer.Stream.Serialize(&p->CurrentHealth);
-        serializer.Stream.Serialize(&p->InitialHealth);
         serializer.Stream.Serialize(&p->MaxHealth);
+        QBoolean.Serialize(&p->HasInitialized, serializer);
         QBoolean.Serialize(&p->IsDead, serializer);
     }
   }
@@ -2774,13 +2774,17 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct PlayerLink : Quantum.IComponent {
-    public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
+    public const Int32 SIZE = 32;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(8)]
+    [HideInInspector()]
+    public FPVector3 LookDirection;
     [FieldOffset(0)]
     public PlayerRef Player;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 353;
+        hash = hash * 31 + LookDirection.GetHashCode();
         hash = hash * 31 + Player.GetHashCode();
         return hash;
       }
@@ -2788,6 +2792,7 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (PlayerLink*)ptr;
         PlayerRef.Serialize(&p->Player, serializer);
+        FPVector3.Serialize(&p->LookDirection, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -4448,11 +4453,11 @@ namespace Quantum.Prototypes {
   [System.SerializableAttribute()]
   [Prototype(typeof(Damageable))]
   public sealed unsafe partial class Damageable_Prototype : ComponentPrototype<Damageable> {
-    public Int32 InitialHealth;
     public Int32 MaxHealth;
-    [HideInInspector()]
     public Int32 CurrentHealth;
     public QBoolean IsDead;
+    [HideInInspector()]
+    public QBoolean HasInitialized;
     partial void MaterializeUser(Frame frame, ref Damageable result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       Damageable component = default;
@@ -4461,7 +4466,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Damageable result, in PrototypeMaterializationContext context) {
       result.CurrentHealth = this.CurrentHealth;
-      result.InitialHealth = this.InitialHealth;
+      result.HasInitialized = this.HasInitialized;
       result.IsDead = this.IsDead;
       result.MaxHealth = this.MaxHealth;
       MaterializeUser(frame, ref result, in context);
@@ -4804,6 +4809,8 @@ namespace Quantum.Prototypes {
   [Prototype(typeof(PlayerLink))]
   public sealed unsafe partial class PlayerLink_Prototype : ComponentPrototype<PlayerLink> {
     public PlayerRef Player;
+    [HideInInspector()]
+    public FPVector3 LookDirection;
     partial void MaterializeUser(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
       PlayerLink component = default;
@@ -4811,6 +4818,7 @@ namespace Quantum.Prototypes {
       return f.Set(entity, component) == SetResult.ComponentAdded;
     }
     public void Materialize(Frame frame, ref PlayerLink result, in PrototypeMaterializationContext context) {
+      result.LookDirection = this.LookDirection;
       result.Player = this.Player;
       MaterializeUser(frame, ref result, in context);
     }

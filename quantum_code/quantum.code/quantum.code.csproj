@@ -196,6 +196,7 @@
     <Compile Include="ZombieTest\AI\Decorators\IsInsideVision.cs" />
     <Compile Include="ZombieTest\CharacterMovement.cs" />
     <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\ComponentExtensions.cs" />
     <Compile Include="ZombieTest\Systems\DamageSystem.cs" />
     <Compile Include="ZombieTest\Systems\QListExtensions.cs" />
     <Compile Include="ZombieTest\Systems\ShooterSystem.cs" />

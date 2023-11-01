@@ -479,7 +479,7 @@ MonoBehaviour:
     Weapon: []
     ZombieSpawner:
     - spawnCount: 5
-      health: 0
+      health: 8
       spawnRate:
         RawValue: 262144
       spawnInitialDelay:
