@@ -2,6 +2,7 @@ using Photon.Deterministic;
 using Quantum;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zombie.Camera;
 using Zombie.Inputs;
 using Input = Quantum.Input;
 
@@ -10,6 +11,7 @@ namespace Zombie.Player
     public class PlayerInputs : MonoBehaviour
     {
         [SerializeField] private float snappiness = 10.0f;
+        [SerializeField] private Transform aimDirection;
 
         private GameplayInputs.PlayerActions PlayerActions => inputs.Player;
         private GameplayInputs inputs;
@@ -29,12 +31,26 @@ namespace Zombie.Player
         {
             QuantumCallback.Subscribe<CallbackPollInput>(this, CheckInput);
             inputs.UI.Cancel.performed += ToggleCursor;
+            inputs.Player.Aim.started += EnableShootCamera;
+            inputs.Player.Aim.canceled += DisableShootCamera;
         }
 
         private void OnDisable()
         {
             QuantumCallback.UnsubscribeListener<CallbackPollInput>(this);
             inputs.UI.Cancel.performed -= ToggleCursor;
+            inputs.Player.Aim.started -= EnableShootCamera;
+            inputs.Player.Aim.canceled -= DisableShootCamera;
+        }
+
+        private void EnableShootCamera(InputAction.CallbackContext obj)
+        {
+            CameraController.SetShootCamera();
+        }
+        
+        private void DisableShootCamera(InputAction.CallbackContext obj)
+        {
+            CameraController.SetDefaultCamera();
         }
 
         private void CheckInput(CallbackPollInput callback)
@@ -48,6 +64,9 @@ namespace Zombie.Player
             input.Direction = direction.ToFPVector2();
             input.LookDelta = accumulator.ToFPVector2();
             input.Jump = PlayerActions.Jump.IsPressed();
+            input.Shoot = PlayerActions.Shoot.IsPressed();
+            input.Aim = PlayerActions.Aim.IsPressed();
+            input.MuzzlePosition = aimDirection.position.ToFPVector3();
 
             callback.SetInput(input, DeterministicInputFlags.Repeatable);
         }

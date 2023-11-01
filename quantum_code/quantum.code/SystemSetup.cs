@@ -27,6 +27,8 @@ namespace Quantum
                 // user systems go here
                 new CharacterSystem(),
                 new ZombieSpawnerSystem(), 
+                new DamageSystem(),
+                new ShooterSystem(),
 
                 // new ProjectileHitRetrievalSystem(), 
                 new PlayerInitSystem(), 

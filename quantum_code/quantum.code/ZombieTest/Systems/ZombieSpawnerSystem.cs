@@ -19,7 +19,14 @@ namespace Quantum.ZombieTest.Systems
             QList<EntityRef> instances = GetInstances(frame, filter);
 
             if (instances.Count > filter.Spawner->spawnCount)
+            {
+                foreach (EntityRef instance in instances)
+                {
+                    if (!instance.IsValid)
+                        instances.Remove(instance);
+                }
                 return;
+            }
 
             foreach (EntityRef instance in instances)
             {
@@ -69,7 +76,12 @@ namespace Quantum.ZombieTest.Systems
                 InitializeBlackboard(frame, newAgent);
                 InitializeNavmesh(frame, spawner->navmeshAgentConfig, spawner->navmeshAsset, newAgent);
                 SetRandomPosition(frame, spawner, newAgent);
-                
+
+                Damageable damageable = new();
+                damageable.MaxHealth = spawner->health;
+                damageable.CurrentHealth = damageable.MaxHealth;
+                frame.Set(newAgent, damageable);
+
                 instances.Add(newAgent);
                 
                 #if DEBUG

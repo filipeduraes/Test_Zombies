@@ -26,7 +26,8 @@ namespace Quantum.ZombieTest.Systems
                 lookDirection = movement.RotateLookDirection(lookDirection, filter.Transform->Right, playerInput->LookDelta);
                 FPVector3 forwardProjection = FPVector3.ProjectOnPlane(lookDirection, FPVector3.Up);
                 
-                frame.Events.LookDirectionChanged(lookDirection);
+                frame.Signals.ChangeLookDirection(filter.Entity, lookDirection);
+                frame.Events.OnLookDirectionChanged(filter.Entity, lookDirection);
                 filter.Transform->Rotation = FPQuaternion.LookRotation(forwardProjection);
             }
             

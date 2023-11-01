@@ -196,7 +196,9 @@
     <Compile Include="ZombieTest\AI\Decorators\IsInsideVision.cs" />
     <Compile Include="ZombieTest\CharacterMovement.cs" />
     <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\DamageSystem.cs" />
     <Compile Include="ZombieTest\Systems\QListExtensions.cs" />
+    <Compile Include="ZombieTest\Systems\ShooterSystem.cs" />
     <Compile Include="ZombieTest\Systems\ZombieSpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,8 +229,11 @@
     <Content Include="CustomState\DSL\Projectile.qtn" />
     <Content Include="CustomState\DSL\QAnimationState.qtn" />
     <Content Include="CustomState\DSL\Weapon.qtn" />
+    <Content Include="ZombieTest\DSL\Damageable.qtn" />
     <Content Include="ZombieTest\DSL\Input.qtn" />
+    <Content Include="ZombieTest\DSL\OnLookDIrectionChanged.qtn" />
     <Content Include="ZombieTest\DSL\PlayerLink.qtn" />
+    <Content Include="ZombieTest\DSL\Shooter.qtn" />
     <Content Include="ZombieTest\DSL\ZombieSpawner.qtn" />
   </ItemGroup>
   <ItemGroup>
