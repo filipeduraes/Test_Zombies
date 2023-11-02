@@ -2467,7 +2467,6 @@ namespace Quantum {
     [FieldOffset(0)]
     public Int32 CurrentHealth;
     [FieldOffset(8)]
-    [HideInInspector()]
     public QBoolean HasInitialized;
     [FieldOffset(12)]
     public QBoolean IsDead;
@@ -3211,7 +3210,7 @@ namespace Quantum {
       }
     }
     public unsafe partial struct FrameEvents {
-      public const Int32 EVENT_TYPE_COUNT = 13;
+      public const Int32 EVENT_TYPE_COUNT = 16;
       public static Int32 GetParentEventID(Int32 eventID) {
         switch (eventID) {
           case EventOnDamageDealt.ID: return EventResourceEvent.ID;
@@ -3238,6 +3237,9 @@ namespace Quantum {
           case EventOnPickUpCoins.ID: return typeof(EventOnPickUpCoins);
           case EventOnDamage.ID: return typeof(EventOnDamage);
           case EventOnLookDirectionChanged.ID: return typeof(EventOnLookDirectionChanged);
+          case EventOnAIMovement.ID: return typeof(EventOnAIMovement);
+          case EventOnAIStopped.ID: return typeof(EventOnAIStopped);
+          case EventOnAIAttack.ID: return typeof(EventOnAIAttack);
           default: throw new System.ArgumentOutOfRangeException("eventID");
         }
       }
@@ -3325,6 +3327,24 @@ namespace Quantum {
         var ev = _f.Context.AcquireEvent<EventOnLookDirectionChanged>(EventOnLookDirectionChanged.ID);
         ev.sender = sender;
         ev.direction = direction;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventOnAIMovement OnAIMovement(EntityRef entity) {
+        var ev = _f.Context.AcquireEvent<EventOnAIMovement>(EventOnAIMovement.ID);
+        ev.entity = entity;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventOnAIStopped OnAIStopped(EntityRef entity) {
+        var ev = _f.Context.AcquireEvent<EventOnAIStopped>(EventOnAIStopped.ID);
+        ev.entity = entity;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventOnAIAttack OnAIAttack(EntityRef entity) {
+        var ev = _f.Context.AcquireEvent<EventOnAIAttack>(EventOnAIAttack.ID);
+        ev.entity = entity;
         _f.AddEvent(ev);
         return ev;
       }
@@ -3694,6 +3714,81 @@ namespace Quantum {
         var hash = 89;
         hash = hash * 31 + sender.GetHashCode();
         hash = hash * 31 + direction.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnAIMovement : EventBase {
+    public new const Int32 ID = 13;
+    public EntityRef entity;
+    protected EventOnAIMovement(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnAIMovement() : 
+        base(13, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 97;
+        hash = hash * 31 + entity.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnAIStopped : EventBase {
+    public new const Int32 ID = 14;
+    public EntityRef entity;
+    protected EventOnAIStopped(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnAIStopped() : 
+        base(14, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 101;
+        hash = hash * 31 + entity.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventOnAIAttack : EventBase {
+    public new const Int32 ID = 15;
+    public EntityRef entity;
+    protected EventOnAIAttack(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventOnAIAttack() : 
+        base(15, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 103;
+        hash = hash * 31 + entity.GetHashCode();
         return hash;
       }
     }
@@ -4456,7 +4551,6 @@ namespace Quantum.Prototypes {
     public Int32 MaxHealth;
     public Int32 CurrentHealth;
     public QBoolean IsDead;
-    [HideInInspector()]
     public QBoolean HasInitialized;
     partial void MaterializeUser(Frame frame, ref Damageable result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {

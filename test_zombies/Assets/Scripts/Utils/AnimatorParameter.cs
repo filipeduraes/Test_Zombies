@@ -18,5 +18,15 @@ namespace Zombie.Player.Animations
         {
             return parameter.hash;
         }
+        
+        public static implicit operator AnimatorParameter(string parameterName)
+        {
+            AnimatorParameter parameter = new()
+            {
+                key = parameterName
+            };
+            
+            return parameter;
+        }
     }
 }

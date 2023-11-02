@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5798391568344394662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb885ccd36464a4682523d6de32317e, type: 3}
+  m_Name: AttackTarget_2
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|AttackTarget_2
+      Guid:
+        Value: 2674321975276192690
+    Label: AttackTarget
+    Id: 5
+    Services: []
+    target:
+      Key: ClosestCharacter
+    minimumAttackDistance:
+      RawValue: 65536
+    damage: 2
 --- !u!114 &-684575015224444521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,7 +43,7 @@ MonoBehaviour:
       Guid:
         Value: 2455473932978594343
     Label: FindClosestCharacter
-    Id: 2
+    Id: 3
     Services: []
     resultKey:
       Key: ClosestCharacter
@@ -43,9 +68,9 @@ MonoBehaviour:
     Id: 0
     Child:
       Id:
-        Value: 3217770142462909898
+        Value: 1577105361393559035
     AbortType: 0
-    NodesAmount: 4
+    NodesAmount: 7
 --- !u!114 &1374143550026552648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,15 +81,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fb05bc3f887b78449839e6e54e7ee21, type: 3}
-  m_Name: MoveToTarget_1
+  m_Name: MoveToTarget_3
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_3
       Guid:
         Value: 1195006700022705383
     Label: MoveToTarget
-    Id: 3
+    Id: 6
     Services: []
     minDistance:
       RawValue: 65536
@@ -96,10 +121,67 @@ MonoBehaviour:
         Value: 2455473932978594343
     - Id:
         Value: 1195006700022705383
+    - Id:
+        Value: 2674321975276192690
+    - Id:
+        Value: 1897435367553224659
     Services: []
     TopmostDecorator:
       Id:
         Value: 0
     CurrentChildIndex:
       Index: 0
+    IsDynamic: 0
+--- !u!114 &4651396072126711500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deac2154abec3fb47b6e5d52ba124849, type: 3}
+  m_Name: WaitLeaf_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|WaitLeaf_1
+      Guid:
+        Value: 1897435367553224659
+    Label: WaitLeaf
+    Id: 4
+    Services: []
+    Duration:
+      RawValue: 131072
+    EndTimeIndex:
+      Index: 2
+--- !u!114 &7854861028426926082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ccc1b22f54b8f4c946be4a83615c33, type: 3}
+  m_Name: BTSelector_1
+  m_EditorClassIdentifier: 
+  Settings:
+    Identifier:
+      Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSelector_1
+      Guid:
+        Value: 1577105361393559035
+    Label: BTSelector
+    Id: 2
+    Children:
+    - Id:
+        Value: 3217770142462909898
+    Services: []
+    TopmostDecorator:
+      Id:
+        Value: 0
+    CurrentChildIndex:
+      Index: 1
     IsDynamic: 0

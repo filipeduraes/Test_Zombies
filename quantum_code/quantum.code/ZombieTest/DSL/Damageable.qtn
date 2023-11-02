@@ -4,7 +4,7 @@
     int CurrentHealth;
     
     bool IsDead;
-    [HideInInspector] bool HasInitialized;
+    bool HasInitialized;
 }
 
 signal OnDamage(entity_ref target, entity_ref source, int damage);

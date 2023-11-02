@@ -405,7 +405,7 @@ MonoBehaviour:
       StaticData:
         Name: Ground_01
         Tag: Untagged
-        Layer: 0
+        Layer: 9
         Asset:
           Id:
             Value: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
       StaticData:
         Name: Ground_02
         Tag: Untagged
-        Layer: 0
+        Layer: 9
         Asset:
           Id:
             Value: 0

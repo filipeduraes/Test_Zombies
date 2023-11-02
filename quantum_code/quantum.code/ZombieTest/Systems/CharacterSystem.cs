@@ -44,10 +44,15 @@ namespace Quantum.ZombieTest.Systems
             EntityRef playerInstance = frame.Create(entityPrototype);
 
             if (frame.Unsafe.TryGetPointer(playerInstance, out PlayerLink* link))
+            {
                 link->Player = player;
 
-            if (frame.Unsafe.TryGetPointer(playerInstance, out Transform3D* transform))
-                transform->Position.X = 0 + player;
+                if (frame.Unsafe.TryGetPointer(playerInstance, out Transform3D* transform))
+                {
+                    transform->Position.X = 0 + player;
+                    link->LookDirection = transform->Forward;
+                }
+            }
         }
         
         public struct Filter

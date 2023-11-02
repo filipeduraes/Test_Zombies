@@ -133,7 +133,7 @@ MonoBehaviour:
         Id:
           Value: 1149378074360189638
       ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_3
       AssetRef:
         Id:
           Value: 1195006700022705383
@@ -178,6 +178,11 @@ MonoBehaviour:
         Id:
           Value: 1562936613862050415
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSelector_1
+      AssetRef:
+        Id:
+          Value: 1577105361393559035
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|SetTimerRandom_4
       AssetRef:
         Id:
@@ -213,6 +218,11 @@ MonoBehaviour:
         Id:
           Value: 1885450974166878644
       ResourcePath: DB/CircuitExport/HFSM_Assets/SlimeAI
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|WaitLeaf_1
+      AssetRef:
+        Id:
+          Value: 1897435367553224659
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/Prototypes/Zombie|EntityPrototype
       AssetRef:
         Id:
@@ -258,6 +268,11 @@ MonoBehaviour:
         Id:
           Value: 2648745172208293610
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|AttackTarget_2
+      AssetRef:
+        Id:
+          Value: 2674321975276192690
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/ExampleScene_Map
       AssetRef:
         Id:

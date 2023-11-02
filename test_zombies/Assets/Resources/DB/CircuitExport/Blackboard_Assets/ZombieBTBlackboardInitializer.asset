@@ -66,6 +66,28 @@ MonoBehaviour:
         AsAssetRef:
           Id:
             Value: 0
+    - Key: Damage
+      Value:
+        AsBoolean: 0
+        AsByte: 0
+        AsInteger: 0
+        AsFP:
+          RawValue: 131072
+        AsFPVector2:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+        AsFPVector3:
+          X:
+            RawValue: 0
+          Y:
+            RawValue: 0
+          Z:
+            RawValue: 0
+        AsAssetRef:
+          Id:
+            Value: 0
     - Key: TargetMinDistance
       Value:
         AsBoolean: 0

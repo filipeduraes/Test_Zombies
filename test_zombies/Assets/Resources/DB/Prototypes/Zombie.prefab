@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656339819119107918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.22, z: 0}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,8 +42,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3342423360219778776}
   - component: {fileID: 6212489489583160079}
+  - component: {fileID: 414231266116288340}
   - component: {fileID: 690962870112571032}
   - component: {fileID: 8907666183502447019}
+  - component: {fileID: 1948940587334126927}
+  - component: {fileID: 4736661536596331290}
   m_Layer: 13
   m_Name: Zombie
   m_TagString: Untagged
@@ -151,7 +154,7 @@ MonoBehaviour:
     CallbackFlags:
       Value: 0
   PhysicsBody:
-    IsEnabled: 1
+    IsEnabled: 0
     Version2D: 2
     Version3D: 2
     Config2D: 116
@@ -215,6 +218,24 @@ MonoBehaviour:
   View:
     Id:
       Value: 672143249347200294
+--- !u!114 &414231266116288340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028862022579483366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06e783c13bcec84a94ade2b326184e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieView: {fileID: 8907666183502447019}
+  animator: {fileID: 6398229214988909950}
+  isMoving:
+    key: IsMoving
+  attack:
+    key: Attack
 --- !u!114 &690962870112571032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c51fe3af00b4da5d44f02d9b3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BindBehaviour: 0
+  BindBehaviour: 1
   ManualDisposal: 0
   GameObjectNameIsEntityRef: 1
   ErrorCorrectionRateMin: 3.3
@@ -273,6 +294,39 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1948940587334126927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028862022579483366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faf786d9ff58a54588a21fda2d82de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    AvoidanceLayer: 13
+    Radius:
+      RawValue: 16384
+    IsActive: 1
+--- !u!208 &4736661536596331290
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028862022579483366}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.25, y: 0.995, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.72, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &2192313858194408768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,6 +699,12 @@ PrefabInstance:
 --- !u!4 &6398229214979838698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5091242709008406442, guid: 6d30ae6f59058ea4790c0d9389de2ac9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2192313858194408768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6398229214988909950 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5091242708998600766, guid: 6d30ae6f59058ea4790c0d9389de2ac9,
     type: 3}
   m_PrefabInstance: {fileID: 2192313858194408768}
   m_PrefabAsset: {fileID: 0}
