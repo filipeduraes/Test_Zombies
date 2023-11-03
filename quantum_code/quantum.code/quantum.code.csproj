@@ -201,6 +201,7 @@
     <Compile Include="ZombieTest\Systems\DamageSystem.cs" />
     <Compile Include="ZombieTest\Systems\QListExtensions.cs" />
     <Compile Include="ZombieTest\Systems\ShooterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\ShutdownSystem.cs" />
     <Compile Include="ZombieTest\Systems\ZombieSpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +238,7 @@
     <Content Include="ZombieTest\DSL\AICallbacks.qtn" />
     <Content Include="ZombieTest\DSL\PlayerLink.qtn" />
     <Content Include="ZombieTest\DSL\Shooter.qtn" />
+    <Content Include="ZombieTest\DSL\ShutdownTimer.qtn" />
     <Content Include="ZombieTest\DSL\ZombieSpawner.qtn" />
   </ItemGroup>
   <ItemGroup>

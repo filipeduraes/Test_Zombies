@@ -8,7 +8,7 @@
             {
                 damageable->CurrentHealth -= damage;
                 damageable->IsDead = damageable->CurrentHealth <= 0;
-                frame.Events.OnDamage(targetCharacter, damageable->CurrentHealth);
+                frame.Events.OnDamage(targetCharacter, *damageable, damage);
 
                 if (damageable->IsDead)
                 {

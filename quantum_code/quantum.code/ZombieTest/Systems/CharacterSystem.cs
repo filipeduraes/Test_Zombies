@@ -49,7 +49,7 @@ namespace Quantum.ZombieTest.Systems
 
                 if (frame.Unsafe.TryGetPointer(playerInstance, out Transform3D* transform))
                 {
-                    transform->Position.X = 0 + player;
+                    transform->Position.X = (int) player;
                     link->LookDirection = transform->Forward;
                 }
             }

@@ -475,6 +475,7 @@ MonoBehaviour:
     QAnimationState: []
     Shield: []
     Shooter: []
+    ShutdownTimer: []
     UTAgent: []
     Weapon: []
     ZombieSpawner:
@@ -567,6 +568,65 @@ MonoBehaviour:
         Z:
           RawValue: 196608
       instances: []
+    CharacterController2D: []
+    CharacterController3D: []
+    NavMeshAvoidanceAgent: []
+    NavMeshAvoidanceObstacle: []
+    NavMeshPathfinder: []
+    NavMeshSteeringAgent: []
+    PhysicsBody2D: []
+    PhysicsBody3D: []
+    PhysicsCollider2D: []
+    PhysicsCollider3D: []
+    PhysicsCallbacks2D: []
+    PhysicsCallbacks3D: []
+    Transform2D: []
+    Transform2DVertical: []
+    Transform3D:
+    - Position:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+      Rotation:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 0
+        Z:
+          RawValue: 0
+    View: []
+    PhysicsJoints2D: []
+    PhysicsJoints3D: []
+  - AIBlackboardComponent: []
+    BTAgent: []
+    CharacterInventory: []
+    CompoundBTAgent: []
+    Damageable: []
+    EntitySpawner: []
+    GOAPAgent: []
+    HFSMAgent: []
+    Hazard: []
+    Health: []
+    Knockable: []
+    Mana: []
+    PickUpSlot: []
+    PlayerID: []
+    PlayerLink: []
+    Projectile: []
+    QAnimationState: []
+    Shield: []
+    Shooter: []
+    ShutdownTimer:
+    - time:
+        RawValue: 3932160
+      timer:
+        RawValue: 0
+    UTAgent: []
+    Weapon: []
+    ZombieSpawner: []
     CharacterController2D: []
     CharacterController3D: []
     NavMeshAvoidanceAgent: []

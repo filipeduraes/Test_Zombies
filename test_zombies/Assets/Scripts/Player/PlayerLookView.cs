@@ -1,18 +1,18 @@
-﻿using System;
-using Photon.Deterministic;
-using Quantum;
+﻿using Quantum;
 using UnityEngine;
 
 namespace Zombie.Player
 {
     public class PlayerLookView : MonoBehaviour
     {
+        [SerializeField] private EntityView view;
+        
         private EntityRef playerEntity;
         private DispatcherSubscription listener;
 
-        public void Initialize(EntityRef playerEntity)
+        public void Initialize()
         {
-            this.playerEntity = playerEntity;
+            playerEntity = view.EntityRef;
         }
 
         private void OnEnable()

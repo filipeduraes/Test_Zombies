@@ -13,5 +13,6 @@ signal OnDeath(entity_ref target);
 event OnDamage
 {
     entity_ref target;
+    Damageable targetDamageable;
     int damage;
 }

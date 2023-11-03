@@ -29,6 +29,7 @@ namespace Quantum
                 new ZombieSpawnerSystem(), 
                 new DamageSystem(),
                 new ShooterSystem(),
+                new ShutdownSystem(),
 
                 // new ProjectileHitRetrievalSystem(), 
                 new PlayerInitSystem(), 

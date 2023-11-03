@@ -12,7 +12,7 @@ namespace Photon.QuantumDemo.Menu.Scripts
             if (game.Session.IsPaused) 
                 return;
 
-            foreach (var lp in game.GetLocalPlayers()) 
+            foreach (int lp in game.GetLocalPlayers()) 
             {
                 Debug.Log($"CustomCallbacks - sending player: {lp}"); 
                 game.SendPlayerData(lp, playerData);

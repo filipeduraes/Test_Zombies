@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4156955698759600698}
   - component: {fileID: 5140635337191234654}
   - component: {fileID: 891577850759990411}
+  - component: {fileID: 7172245221977231889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations: {fileID: 4156955698759600698}
   lookView: {fileID: 8556369396025377140}
+  damageSender: {fileID: 7172245221977231889}
   entityPrototype: {fileID: 1598482147964627493}
   lookDirection: {fileID: 4738389887645888669}
 --- !u!114 &4156955698759600698
@@ -300,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725edce35cfd2fb4eb7dfc2e0e8eb0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 1598482147964627493}
   playerAnimator: {fileID: 6743266473321579096}
   walkVelocityKey:
     key: WalkVelocity
@@ -309,6 +312,8 @@ MonoBehaviour:
     key: JumpDirection
   isGroundedKey:
     key: IsGrounded
+  damageKey:
+    key: Damage
 --- !u!114 &5140635337191234654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +356,18 @@ MonoBehaviour:
       Value: 0
     HasInitialized:
       Value: 0
+--- !u!114 &7172245221977231889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598482147964627491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3cb1bcd8e2496691f4da22a4040514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2137908603215651113
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4738389887645888669}
   - component: {fileID: 8556369396025377140}
+  - component: {fileID: 8887942983781807233}
   m_Layer: 0
   m_Name: LookDirection
   m_TagString: Untagged
@@ -459,6 +477,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7546c2a1c149fc98da0596b290bfe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 1598482147964627493}
+--- !u!114 &8887942983781807233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118478137697178779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf219326d2292de48a0c671da18d402b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 6689885644387194590}
+    m_OverrideSource: {fileID: 4738389887645888669}
+    m_OverridePosition: {x: 0, y: 0, z: 0}
+    m_OverrideRotation: {x: 0, y: 0, z: 0}
+    m_PositionWeight: 1
+    m_RotationWeight: 1
+    m_Space: 2
 --- !u!1001 &6685393655985070724
 PrefabInstance:
   m_ObjectHideFlags: 0
