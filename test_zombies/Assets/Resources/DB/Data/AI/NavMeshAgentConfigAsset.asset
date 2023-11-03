@@ -37,16 +37,16 @@ MonoBehaviour:
     DefaultWaypointDetectionDistance:
       RawValue: 655
     MovementType: 1
-    VerticalPositioning: 1
+    VerticalPositioning: 2
     Speed:
-      RawValue: 65536
+      RawValue: 131072
     AngularSpeed:
       RawValue: 1310720
     Acceleration:
       RawValue: 1310720
     StoppingDistance:
-      RawValue: 655
-    AutoBraking: 0
+      RawValue: 589
+    AutoBraking: 1
     AutoBrakingDistance:
       RawValue: 32768
     ClampAgentToNavmesh: 0

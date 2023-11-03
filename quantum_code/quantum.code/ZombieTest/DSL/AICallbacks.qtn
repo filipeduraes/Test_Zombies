@@ -1,0 +1,14 @@
+event OnAIMovement
+{
+    EntityRef entity;
+}
+
+event OnAIStopped
+{
+    EntityRef entity;
+}
+
+event OnAIAttack
+{
+    EntityRef entity;
+}

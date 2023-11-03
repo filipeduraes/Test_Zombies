@@ -10,12 +10,13 @@ namespace Zombie.Player
         [Header("Systems")]
         [SerializeField] private PlayerAnimations animations;
         [SerializeField] private PlayerLookView lookView;
+        [SerializeField] private PlayerDamageSender damageSender;
         
         [Header("Simulation")]
         [SerializeField] private EntityView entityPrototype;
         [SerializeField] private Transform lookDirection;
 
-        public static event Action<PlayerSetup> OnPlayerInitialized = delegate {  };
+        public static event Action<PlayerSetup> OnLocalPlayerInitialized = delegate {  };
 
         public PlayerRef? PlayerReference { get; private set; } = null;
         public Transform LookDirection => lookDirection;
@@ -29,13 +30,15 @@ namespace Zombie.Player
         {
             PlayerRef? localPlayerReference = GetLocalPlayerReference();
 
+            animations.Initialize(QuantumRunner.Default.Game.Frames.Verified);
+            lookView.Initialize();
+            
             if (localPlayerReference != null)
             {
                 PlayerReference = localPlayerReference;
-                animations.Initialize(QuantumRunner.Default.Game.Frames.Verified, entityPrototype.EntityRef);
-                lookView.Initialize(entityPrototype.EntityRef);
+                damageSender.Initialize(entityPrototype.EntityRef);
                 
-                OnPlayerInitialized(this);
+                OnLocalPlayerInitialized(this);
             }
         }
 

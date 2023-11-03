@@ -2,27 +2,28 @@
 {
     public unsafe class DamageSystem : SystemMainThreadFilter<DamageSystem.Filter>, ISignalOnDamage
     {
-        private Damageable* damageable;
-        
         public void OnDamage(Frame frame, EntityRef targetCharacter, EntityRef sourceCharacter, int damage)
         {
-            damageable->CurrentHealth -= damage;
-            damageable->IsDead = damageable->CurrentHealth <= 0;
-            frame.Events.OnDamage(targetCharacter, damageable->CurrentHealth);
-
-            if (damageable->IsDead)
+            if(frame.Unsafe.TryGetPointer(targetCharacter, out Damageable* damageable))
             {
-                frame.Destroy(targetCharacter);
-                frame.Signals.OnDeath(targetCharacter);
+                damageable->CurrentHealth -= damage;
+                damageable->IsDead = damageable->CurrentHealth <= 0;
+                frame.Events.OnDamage(targetCharacter, *damageable, damage);
+
+                if (damageable->IsDead)
+                {
+                    frame.Destroy(targetCharacter);
+                    frame.Signals.OnDeath(targetCharacter);
+                }
             }
         }
         
         public override void Update(Frame frame, ref Filter filter)
         {
-            if (damageable is null)
+            if (!filter.Damageable->HasInitialized)
             {
-                damageable = filter.Damageable;
-                damageable->CurrentHealth = damageable->MaxHealth;
+                filter.Damageable->CurrentHealth = filter.Damageable->MaxHealth;
+                filter.Damageable->HasInitialized = true;
             }
         }
         

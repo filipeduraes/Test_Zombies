@@ -1,0 +1,13 @@
+component ShutdownTimer
+{
+    FP time;
+    [HideInInspector] FP timer;
+}
+
+event OnTimerUpdate
+{
+    FP currentTime;
+    FP fullTime;
+}
+
+event OnTimerFinished{}

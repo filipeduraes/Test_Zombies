@@ -5,7 +5,6 @@ namespace Quantum.ZombieTest.Systems
     public unsafe class CharacterSystem : SystemMainThreadFilter<CharacterSystem.Filter>, ISignalOnPlayerDataSet
     {
         private CharacterMovement movement;
-        private FPVector3 lookDirection = FPVector3.Forward;
         
         public override void OnInit(Frame frame)
         {
@@ -23,11 +22,11 @@ namespace Quantum.ZombieTest.Systems
             
             if (playerInput->LookDelta != FPVector2.Zero)
             {
-                lookDirection = movement.RotateLookDirection(lookDirection, filter.Transform->Right, playerInput->LookDelta);
-                FPVector3 forwardProjection = FPVector3.ProjectOnPlane(lookDirection, FPVector3.Up);
+                filter.PlayerLink->LookDirection = movement.RotateLookDirection(filter.PlayerLink->LookDirection, filter.Transform->Right, playerInput->LookDelta);
+                FPVector3 forwardProjection = FPVector3.ProjectOnPlane(filter.PlayerLink->LookDirection, FPVector3.Up);
                 
-                frame.Signals.ChangeLookDirection(filter.Entity, lookDirection);
-                frame.Events.OnLookDirectionChanged(filter.Entity, lookDirection);
+                frame.Signals.ChangeLookDirection(filter.Entity, filter.PlayerLink->LookDirection);
+                frame.Events.OnLookDirectionChanged(filter.Entity, filter.PlayerLink->LookDirection);
                 filter.Transform->Rotation = FPQuaternion.LookRotation(forwardProjection);
             }
             
@@ -45,10 +44,15 @@ namespace Quantum.ZombieTest.Systems
             EntityRef playerInstance = frame.Create(entityPrototype);
 
             if (frame.Unsafe.TryGetPointer(playerInstance, out PlayerLink* link))
+            {
                 link->Player = player;
 
-            if (frame.Unsafe.TryGetPointer(playerInstance, out Transform3D* transform))
-                transform->Position.X = 0 + player;
+                if (frame.Unsafe.TryGetPointer(playerInstance, out Transform3D* transform))
+                {
+                    transform->Position.X = (int) player;
+                    link->LookDirection = transform->Forward;
+                }
+            }
         }
         
         public struct Filter

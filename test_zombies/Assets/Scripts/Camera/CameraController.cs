@@ -21,12 +21,18 @@ namespace Zombie.Camera
         {
             defaultVirtualCamera.Priority = HighPriority;
             shootVirtualCamera.Priority = LowPriority;
+            
+            defaultVirtualCamera.gameObject.SetActive(true);
+            shootVirtualCamera.gameObject.SetActive(false);
         }
         
         public static void SetShootCamera()
         {
             defaultVirtualCamera.Priority = LowPriority;
             shootVirtualCamera.Priority = HighPriority;
+            
+            defaultVirtualCamera.gameObject.SetActive(false);
+            shootVirtualCamera.gameObject.SetActive(true);
         }
     }
 }

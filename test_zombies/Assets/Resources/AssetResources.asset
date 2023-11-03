@@ -63,6 +63,11 @@ MonoBehaviour:
         Id:
           Value: 353696852809583513
       ResourcePath: DB/Prototypes/Player
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|WaitLeaf_0
+      AssetRef:
+        Id:
+          Value: 417516392452254603
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/Data/AI/NavMeshAgentConfigAsset
       AssetRef:
         Id:
@@ -123,6 +128,11 @@ MonoBehaviour:
         Id:
           Value: 919980335714377135
       ResourcePath: DB/Scenes/Gameplay_UnityNavMesh
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|AttackTarget_2
+      AssetRef:
+        Id:
+          Value: 1024346806866386309
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/CircuitExport/HFSM_Assets/SlimeAI|ResetNavMeshTarget_2
       AssetRef:
         Id:
@@ -133,7 +143,7 @@ MonoBehaviour:
         Id:
           Value: 1149378074360189638
       ResourcePath: DB/CircuitExport/Blackboard_Assets/SlimeAIBlackboard
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_1
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|MoveToTarget_3
       AssetRef:
         Id:
           Value: 1195006700022705383
@@ -238,7 +248,7 @@ MonoBehaviour:
         Id:
           Value: 2372440079921492754
       ResourcePath: DB/ExampleScene_Map_NavMesh_data
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_0
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|FindClosestCharacter_1
       AssetRef:
         Id:
           Value: 2455473932978594343
@@ -333,7 +343,7 @@ MonoBehaviour:
         Id:
           Value: 3206195024203956000
       ResourcePath: DB/EntityPrototypes/Stone Square QPrefab
-    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_0
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSequence_1
       AssetRef:
         Id:
           Value: 3217770142462909898
@@ -353,6 +363,11 @@ MonoBehaviour:
         Id:
           Value: 3310866207977209541
       ResourcePath: DB/CircuitExport/HFSM_Assets/SimpleBot
+    - Path: Resources/DB/CircuitExport/BT_Assets/ZombieBT|BTSelector_0
+      AssetRef:
+        Id:
+          Value: 3411170920258557112
+      ResourcePath: DB/CircuitExport/BT_Assets/ZombieBT
     - Path: Resources/DB/ExampleScene_Map_NavMesh
       AssetRef:
         Id:

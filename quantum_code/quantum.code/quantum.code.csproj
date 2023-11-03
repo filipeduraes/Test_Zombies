@@ -191,14 +191,17 @@
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZombieTest\AI\Actions\AttackTarget.cs" />
     <Compile Include="ZombieTest\AI\Actions\FindClosestCharacter.cs" />
     <Compile Include="ZombieTest\AI\Actions\MoveToTarget.cs" />
     <Compile Include="ZombieTest\AI\Decorators\IsInsideVision.cs" />
     <Compile Include="ZombieTest\CharacterMovement.cs" />
     <Compile Include="ZombieTest\Systems\CharacterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\ComponentExtensions.cs" />
     <Compile Include="ZombieTest\Systems\DamageSystem.cs" />
     <Compile Include="ZombieTest\Systems\QListExtensions.cs" />
     <Compile Include="ZombieTest\Systems\ShooterSystem.cs" />
+    <Compile Include="ZombieTest\Systems\ShutdownSystem.cs" />
     <Compile Include="ZombieTest\Systems\ZombieSpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,8 +235,10 @@
     <Content Include="ZombieTest\DSL\Damageable.qtn" />
     <Content Include="ZombieTest\DSL\Input.qtn" />
     <Content Include="ZombieTest\DSL\OnLookDIrectionChanged.qtn" />
+    <Content Include="ZombieTest\DSL\AICallbacks.qtn" />
     <Content Include="ZombieTest\DSL\PlayerLink.qtn" />
     <Content Include="ZombieTest\DSL\Shooter.qtn" />
+    <Content Include="ZombieTest\DSL\ShutdownTimer.qtn" />
     <Content Include="ZombieTest\DSL\ZombieSpawner.qtn" />
   </ItemGroup>
   <ItemGroup>

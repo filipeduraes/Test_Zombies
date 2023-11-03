@@ -18,15 +18,21 @@ MonoBehaviour:
       Guid:
         Value: 2752945826699186964
     Entries:
-    - Type: 6
-      Key:
-        Key: ClosestCharacter
     - Type: 7
       Key:
         Key: NavMeshAsset
+    - Type: 2
+      Key:
+        Key: NewBlackboard Variable
     - Type: 3
       Key:
         Key: ViewDistance
+    - Type: 6
+      Key:
+        Key: ClosestCharacter
+    - Type: 3
+      Key:
+        Key: Damage
     - Type: 3
       Key:
         Key: TargetMinDistance

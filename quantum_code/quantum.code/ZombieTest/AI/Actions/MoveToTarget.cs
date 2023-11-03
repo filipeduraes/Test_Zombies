@@ -24,6 +24,7 @@ namespace Quantum
             if (TryGetAllPointers(btParams.Frame, target, btParams.Entity))
             {
                 navMesh = btParams.Frame.FindAsset<NavMesh>(navMeshAsset);
+                btParams.Frame.Events.OnAIMovement(btParams.Entity);
                 return;
             }
             
@@ -39,7 +40,13 @@ namespace Quantum
             
             FP distance = (targetTransform->Position - ownerTransform->Position).SqrMagnitude;
             bool reachedTarget = distance < minDistance * minDistance;
-            
+
+            if (reachedTarget)
+            {
+                btParams.Frame.Events.OnAIStopped(btParams.Entity);
+                pathFinder->Stop(btParams.Frame, btParams.Entity);
+            }
+
             return reachedTarget ? BTStatus.Success : BTStatus.Running;
         }
         

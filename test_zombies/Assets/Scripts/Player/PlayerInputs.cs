@@ -41,6 +41,8 @@ namespace Zombie.Player
             inputs.UI.Cancel.performed -= ToggleCursor;
             inputs.Player.Aim.started -= EnableShootCamera;
             inputs.Player.Aim.canceled -= DisableShootCamera;
+            
+            Cursor.lockState = CursorLockMode.None;
         }
 
         private void EnableShootCamera(InputAction.CallbackContext obj)

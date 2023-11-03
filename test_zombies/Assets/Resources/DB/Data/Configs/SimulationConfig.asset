@@ -39,7 +39,7 @@ MonoBehaviour:
         X:
           RawValue: 0
         Y:
-          RawValue: -655360
+          RawValue: -983040
         Z:
           RawValue: 0
       SolverType: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
           Value: 1
       DefaultCharacterController2D:
         Id:
-          Value: 3
+          Value: 0
       DefaultCharacterController3D:
         Id:
           Value: 4
@@ -105,11 +105,13 @@ MonoBehaviour:
       - Water
       - UI
       - 
-      - 
-      - Player
-      - Enemies
+      - Character
+      - Lighting
       - Ground
+      - Postprocessing
+      - Item
       - Breakable
+      - Enemies
       - 
       - 
       - 
@@ -128,9 +130,7 @@ MonoBehaviour:
       - 
       - 
       - 
-      - 
-      - 
-      LayerMatrix: fffefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      LayerMatrix: 00000000000000000000000000000000000000000000000000000000800a0000000000008028000000000000800200000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     Entities:
       CommitCommandsMode: 0
       DefaultEntityCapacity: 200
@@ -144,4 +144,4 @@ MonoBehaviour:
     ThreadCount: 2
     ChecksumSnapshotHistoryLengthSeconds:
       RawValue: 196608
-    ChecksumErrorDumpOptions: 0
+    ChecksumErrorDumpOptions: -1
