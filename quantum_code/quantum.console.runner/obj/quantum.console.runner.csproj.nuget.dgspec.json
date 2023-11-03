@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {}
+    "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
+    "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
+        "projectUniqueName": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
         "projectName": "quantum.code",
-        "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
+        "projectPath": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj",
         "frameworks": {
           "net462": {
             "projectReferences": {}
@@ -19,20 +19,20 @@
         "net462": {}
       }
     },
-    "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {
+    "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+        "projectUniqueName": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
         "projectName": "quantum.console.runner",
-        "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
-        "packagesPath": "C:\\Users\\Filipe Durães\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\obj\\",
+        "projectPath": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\quantum.console.runner.csproj",
+        "packagesPath": "C:\\Users\\fhdd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.console.runner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Filipe Durães\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fhdd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -41,15 +41,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
-                "projectPath": "C:\\Users\\Filipe Durães\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj"
+              "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj": {
+                "projectPath": "C:\\Users\\fhdd\\Documents\\GitHub\\Test_Zombies\\quantum_code\\quantum.code\\quantum.code.csproj"
               }
             }
           }

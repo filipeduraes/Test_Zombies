@@ -1,0 +1,6 @@
+﻿component Shooter
+{
+    int Damage;
+    FPVector3 MuzzleOffset;
+    LayerMask DamageLayer;
+}

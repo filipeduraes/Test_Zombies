@@ -1,0 +1,5 @@
+event OnLookDirectionChanged
+{
+    EntityRef sender;
+    FPVector3 direction;
+}

@@ -119,7 +119,7 @@ MonoBehaviour:
       CompoundShapes: []
       IsSetFromSourceCollider: 0
     Shape3D:
-      ShapeType: 1
+      ShapeType: 2
       SphereRadius:
         RawValue: 32768
       PositionOffset:
@@ -131,11 +131,11 @@ MonoBehaviour:
           RawValue: 0
       BoxExtents:
         X:
-          RawValue: 0
+          RawValue: 13107
         Y:
-          RawValue: 0
+          RawValue: 52428
         Z:
-          RawValue: 0
+          RawValue: 13107
       RotationOffset:
         X:
           RawValue: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     CallbackFlags:
       Value: 0
   PhysicsBody:
-    IsEnabled: 0
+    IsEnabled: 1
     Version2D: 2
     Version3D: 2
     Config2D: 116

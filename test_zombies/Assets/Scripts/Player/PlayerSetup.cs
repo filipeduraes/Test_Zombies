@@ -9,6 +9,7 @@ namespace Zombie.Player
     {
         [Header("Systems")]
         [SerializeField] private PlayerAnimations animations;
+        [SerializeField] private PlayerLookView lookView;
         
         [Header("Simulation")]
         [SerializeField] private EntityView entityPrototype;
@@ -32,7 +33,8 @@ namespace Zombie.Player
             {
                 PlayerReference = localPlayerReference;
                 animations.Initialize(QuantumRunner.Default.Game.Frames.Verified, entityPrototype.EntityRef);
-                    
+                lookView.Initialize(entityPrototype.EntityRef);
+                
                 OnPlayerInitialized(this);
             }
         }

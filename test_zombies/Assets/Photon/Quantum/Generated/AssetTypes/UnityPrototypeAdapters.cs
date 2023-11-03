@@ -198,6 +198,7 @@ namespace Quantum.Prototypes.Unity {
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.ZombieSpawner))]
   public class ZombieSpawner_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.ZombieSpawner_Prototype> {
     public System.Int32 spawnCount;
+    public System.Int32 health;
     public Photon.Deterministic.FP spawnRate;
     public Photon.Deterministic.FP spawnInitialDelay;
     public Quantum.AssetRefEntityPrototype prefab;
@@ -213,6 +214,7 @@ namespace Quantum.Prototypes.Unity {
     public sealed override Quantum.Prototypes.ZombieSpawner_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.ZombieSpawner_Prototype();
       result.spawnCount = this.spawnCount;
+      result.health = this.health;
       result.spawnRate = this.spawnRate;
       result.spawnInitialDelay = this.spawnInitialDelay;
       result.prefab = this.prefab;

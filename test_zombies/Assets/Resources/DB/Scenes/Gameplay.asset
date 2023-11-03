@@ -460,6 +460,7 @@ MonoBehaviour:
     BTAgent: []
     CharacterInventory: []
     CompoundBTAgent: []
+    Damageable: []
     EntitySpawner: []
     GOAPAgent: []
     HFSMAgent: []
@@ -473,10 +474,12 @@ MonoBehaviour:
     Projectile: []
     QAnimationState: []
     Shield: []
+    Shooter: []
     UTAgent: []
     Weapon: []
     ZombieSpawner:
     - spawnCount: 5
+      health: 0
       spawnRate:
         RawValue: 262144
       spawnInitialDelay:
